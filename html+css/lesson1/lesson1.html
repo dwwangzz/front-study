@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>lesson1</title>
+    <style type="text/css">
+        input {
+            border: 1px solid #999;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<h1 id="start">a标签</h1>
+<!-- 1. 超链接 -->
+<!-- 2. 锚点 -->
+<a href="#start">锚点</a>
+<!-- 3. 打电话/发邮件-->
+<a href="tel:18653151533">打电话</a>
+<a href="mailto:saijie@163.com">发邮件</a>
+<!-- 4. 协议限定符 -->
+<a href="javascript:alert('协议限定符协议限定符')">协议限定符</a>
+
+<h1>Form 标签</h1>
+<form action="" method="get">
+    <p><label>用户名：</label><input type="text" name="username" placeholder="请输入用户名"></p>
+    <p><label>密码：</label><input type="password" name="password" placeholder="请输入密码"></p>
+    你们所喜欢的男星
+    <p><label>1. 贝克汉姆</label><input type="radio" name="like" value="bkhm"></p>
+    <p><label>2. 莫小贝</label><input type="radio" name="like" value="mxb" checked></p>
+    <p><label>3. 白展堂</label><input type="radio" name="like" value="bzt"></p>
+    你们所喜欢的男星，复选
+    <p><label>1. 贝克汉姆</label><input type="checkbox" name="like2" value="bkhm" checked></p>
+    <p><label>2. 莫小贝</label><input type="checkbox" name="like2" value="mxb"></p>
+    <p><label>3. 白展堂</label><input type="checkbox" name="like2" value="bzt"></p>
+
+    <p>
+        <label>省份：</label>
+        <select name="province" id="province">
+            <option value="山东省">山东省</option>
+            <option value="北京市" selected>北京市</option>
+            <option value="天津市">天津市</option>
+            <option value="河北省">河北省</option>
+        </select>
+    </p>
+
+    <input type="submit" value="提交">
+    <button type="reset">重置</button>
+</form>
+
+
+
+</body>
+</html>

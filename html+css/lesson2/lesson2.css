@@ -1,0 +1,20 @@
+div.green {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #999999;
+}
+
+/*
+父子选择器/派生选择器 选择器空格隔开
+*/
+div span {
+    background-color: red;
+}
+
+/**
+直接子元素选择器
+ */
+selection div ul li a em {
+    background-color: green;
+}
