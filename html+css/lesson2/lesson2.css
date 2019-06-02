@@ -18,3 +18,8 @@ div span {
 selection div ul li a em {
     background-color: green;
 }
+/*分组选择器*/
+/*
+em, strong, span {
+    background-color: #ff4400;
+}*/
