@@ -15,8 +15,111 @@
     </style>
 </head>
 <body>
-<h1 id="start">a标签</h1>
+<h1 id="start">基础标签</h1>
+hyper Text markup language!!!
+超文本标记语言
+<p>lang="en" 告诉搜索爬虫，我们的网站是关于什么内容的</p>
+<p>this is paragraph!!</p>
+<strong>加粗</strong>
+<em>斜体 em标签</em>
+<strong><em>加粗斜体</em></strong>
+<del style="color:#999;">del标签 ￥100</del>
+<address>山东济南高新区[成段展示 + 斜体]</address>
+<div>这是一个div</div>
+<span>这是一个span</span>
+<span>这是一个span</span>
+<div style="color: #f40;">
+    <strong>加粗 #f40 淘宝红</strong>
+    <em>斜体 em标签 #f40 淘宝红</em>
+</div>
+<p>正哥 很帅</p>
+<pre>正哥                 很帅</pre>
+<hr>
+<div style="width: 100px;height: 100px;background-color: #f40;">iquweyroiusydaiofuyiucyiwouqrjhvrwqjnbuyfgsdjhuqywrgjasfbasdyufguwyfjhsd</div>
+<br>
+<div style="width: 100px;height: 100px;background-color: #f40;">【空格和回车：文字分隔符】邓哥很磕碜邓哥很磕碜
+</div>
+html编码
+<pre>& nbsp;</pre>
+&lt;div&gt; great than | little than
+<br>
+<hr>
+<h1>列表</h1>
+<h4>有序列表【order list】 用的地方很少 </h4>
+type：[1,a,A,i,I] 默认1 <br>
+倒序：reversed="reversed" <br>
+初始索引：start="2" <br>
+<ol type="1" reversed="reversed" start="10">
+    <li>marvel</li>
+    <li>速8</li>
+    <li>火影忍者</li>
+    <li>返老还童</li>
+</ol>
+<ol type="I" start="10">
+    <li>marvel</li>
+    <li>速8</li>
+    <li>火影忍者</li>
+    <li>返老还童</li>
+</ol>
+
+<h4>无序列表【unorder list】 用的地方很多</h4>
+<p>type: disc/square/circle 默认 disc</p>
+<ul type="circle">
+    <li>marvel</li>
+    <li>了不起的盖茨比</li>
+    <li>火影忍者</li>
+    <li>返老还童</li>
+    <ul>
+        <li>苹果</li>
+        <li>西瓜</li>
+        <li>桔子</li>
+    </ul>
+</ul>
+<style>
+    .taobao-dh {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .taobao-dh li {
+        margin: 0 10px;
+        float: left;
+        color: #f40;
+        font-weight: bold;
+        font-size: 14px;
+        height: 25px;
+        line-height: 25px;
+        padding: 0 10px;
+    }
+
+    .taobao-dh li:hover {
+        border-radius: 15px;
+        background-color: #f40;
+        color: #fff;
+        cursor: pointer;
+    }
+</style>
+<ul class="taobao-dh">
+    <li>天猫</li>
+    <li>聚划算</li>
+    <li>天猫超市</li>
+</ul>
+<br>
+<h1>img标签</h1>
+<!--
+    1. 网上url
+    2. 本地绝对路径
+    3. 本地相对路径
+    alt属性：当图片访问不到的时候会显示alt属性中的文字信息
+ -->
+<img src="http://www.coco-z.com/files/img/1.jpg" alt="这是美女" style="width: 150px;">
+<img src="彭于晏.jpg" alt="这是彭于晏" style="height:100px;">
+<img src="E:\子正\html+css\lesson2\彭于晏.jpg1" alt="这是彭于晏" style="height:100px;">
+<h1>a标签【anchor】 -- 锚</h1>
 <!-- 1. 超链接 -->
+<a href="https://www.baidu.com" target="_blank"
+   style="width: 50px;height: 50px;background-color: #f40;display: block;">www.taobao.com</a>
 <!-- 2. 锚点 -->
 <a href="#start">锚点</a>
 <!-- 3. 打电话/发邮件-->
