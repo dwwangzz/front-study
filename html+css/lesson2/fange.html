@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>方格</title>
+    <!-- 生产环境版本，优化了尺寸和速度 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
 </head>
 <body>
 <style>
     .d-shuerte {
-        width: 500px;
         height: 300px;
         margin: 0 auto;
         line-height: 100%;
         text-align: center;
-        background-color: aliceblue;
     }
 
     table.shuerte {
         border-collapse: collapse;
+        box-shadow: 10px 10px 10px #1d477c;
+        margin: auto;
     }
 
     table.shuerte td {
@@ -39,20 +42,19 @@
     }
 
     table.shuerte td:hover {
-        background-color: beige;
+        background-color: #eaf1fa;
     }
 
     table.shuerte a:link, a:visited, a:hover, a:active {
         color: rgb(232, 58, 59);
     }
 </style>
-<div class="d-shuerte">
-    <span>
-        <table class="shuerte">
+<div id="dshuerte" class="d-shuerte">
+    <table class="shuerte">
         <tr>
             <td>
                 <a href="javascript:;">
-                    <p>a</p>
+                    <p>{{ message }}</p>
                 </a>
             </td>
             <td>
@@ -101,7 +103,67 @@
             </td>
         </tr>
     </table>
-    </span>
 </div>
 </body>
+<script>
+    function initTable() {
+        // 3*3=9  5*4=20  6*5=30
+        let _word = 'hello world!';
+        let _chars = _word.split('');
+        let charsSet = new Set();
+        for (let i in _chars) {
+            charsSet.add(_chars[i]);
+        }
+        console.dir(charsSet);
+        let len = charsSet.length;
+        // 二维数组
+        let tableArr = [];
+        // 每行的列数[每行放的字母的个数]
+        let columnsMax = 3;
+        if (len > 0 && len <= 9) {
+            // 3*3=9
+            columnsMax = 3;
+        } else if (len > 9 && len <= 20) {
+            // 5*4=20
+            columnsMax = 5;
+        } else if (len > 20 && len <= 30) {
+            // 6*5=30
+            columnsMax = 6;
+        } else {
+            return '单词超长'
+        }
+        // 一行的字母
+        let rowArr = [];
+        for (let i = 0; i < charsSet.length; i++) {
+            var number = i% columnsMax;
+            rowArr.push(charsSet[1])
+        }
+
+        // var set = new Set();
+        // var fileArr = "";
+        // var depCode = $('#depCode').attr("data-value");//取值
+        // if (depCode != '' && depCode != undefined) {
+        //     var array = depCode.split(",");
+        //     for (var i = 0; i < array.length; i++) {
+        //         set.add(array[i].substr(0, 3))
+        //     }
+        //     set.forEach(function (element, sameElement, set) {
+        //         fileArr += element + ",";
+        //     });
+        //
+        // }
+        // if (fileArr.indexOf(value.substr(0, 3)) > -1) {
+        //     return false;
+        // }
+    }
+
+    initTable();
+
+    let app = new Vue({
+        el: '#dshuerte',
+        data: {
+            message: 'Hello Vue!'
+        }
+    })
+</script>
 </html>
