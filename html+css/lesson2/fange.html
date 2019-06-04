@@ -6,15 +6,36 @@
 </head>
 <body>
 <style>
+    .d-shuerte {
+        width: 500px;
+        height: 300px;
+        margin: 0 auto;
+        line-height: 100%;
+        text-align: center;
+        background-color: aliceblue;
+    }
+
     table.shuerte {
         border-collapse: collapse;
-        border: 1px solid rgb(20, 60, 60);
     }
 
     table.shuerte td {
-        border: 5px solid rgb(20, 60, 60);
         height: 30px;
         width: 60px;
+        padding: 5px 0;
+        border: 2px solid rgb(204, 221, 244);
+    }
+
+    table.shuerte td a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    table.shuerte td p {
+        text-align: center;
+        margin: 0;
+        line-height: 30px;
+        font-size: 25px;
     }
 
     table.shuerte td:hover {
@@ -22,61 +43,65 @@
     }
 
     table.shuerte a:link, a:visited, a:hover, a:active {
-        color: #ff4400;
+        color: rgb(232, 58, 59);
     }
 </style>
-<table class="shuerte">
-    <tr>
-        <td>
-            <a href="javascript:;">
-                <p>a</p>
-            </a>
-        </td>
-        <td>
-            <a href="javascript:;">
-                <p>b</p>
-            </a>
-        </td>
-        <td>
-            <a href="javascript:;">
-                <p>c</p>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="javascript:;">
-                <p>d</p>
-            </a>
-        </td>
-        <td>
-            <a href="javascript:;">
-                <p>d</p>
-            </a>
-        </td>
-        <td>
-            <a href="javascript:;">
-                <p>f</p>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="javascript:;">
-                <p>g</p>
-            </a>
-        </td>
-        <td>
-            <a href="javascript:;">
-                <p>h</p>
-            </a>
-        </td>
-        <td>
-            <a href="javascript:;">
-                <p>i</p>
-            </a>
-        </td>
-    </tr>
-</table>
+<div class="d-shuerte">
+    <span>
+        <table class="shuerte">
+        <tr>
+            <td>
+                <a href="javascript:;">
+                    <p>a</p>
+                </a>
+            </td>
+            <td>
+                <a href="javascript:;">
+                    <p>b</p>
+                </a>
+            </td>
+            <td>
+                <a href="javascript:;">
+                    <p>c</p>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="javascript:;">
+                    <p>d</p>
+                </a>
+            </td>
+            <td>
+                <a href="javascript:;">
+                    <p>d</p>
+                </a>
+            </td>
+            <td>
+                <a href="javascript:;">
+                    <p>f</p>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="javascript:;">
+                    <p>g</p>
+                </a>
+            </td>
+            <td>
+                <a href="javascript:;">
+                    <p>h</p>
+                </a>
+            </td>
+            <td>
+                <a href="javascript:;">
+                    <p>i</p>
+                </a>
+            </td>
+        </tr>
+    </table>
+    </span>
+</div>
 </body>
 </html>
