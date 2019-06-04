@@ -108,26 +108,27 @@ div > em
             <div></div>
         </a>
     </selection>
-    <h5>c. 并列先择器</h5>
-    div.demo{}
-    <div>1</div>
-    <div class="demo">2</div>
-    <p class="demo">3</p>
-
-    <h5>d. 权重计算，只要写在同一个横行的选择器，权重相加就可以</h5>
-    <p>#idDiv p{} : 权重计算 100 + 1 = 101 </p>
-    <p>div .classP{} : 权重计算 1 + 10 = 11 </p>
-
-
-    <div class="classDiv" id="idDiv">
-        <p class="classP" id="idP">1</p>
-    </div>
-    <h5>分组选择器</h5>
-    <em>1</em>
-    <strong>2</strong>
-    <span>3</span>
-    <h5></h5>
-    <h5></h5>
 </div>
+<h5>c. 并列先择器</h5>
+div.demo{}
+<div>1</div>
+<div class="demo">2</div>
+<p class="demo">3</p>
+
+<h5>d. 权重计算，只要写在同一个横行的选择器，权重相加就可以</h5>
+<p>#idDiv p{} : 权重计算 100 + 1 = 101 </p>
+<p>div .classP{} : 权重计算 1 + 10 = 11 </p>
+
+<div class="classDiv" id="idDiv">
+    <p class="classP" id="idP">1</p>
+</div>
+<h5>分组选择器</h5>
+<em>1</em>
+<strong>2</strong>
+<span>3</span>
+<div>
+    <img src="父子节点查找顺序.jpg" alt="父子节点查找顺序" width="600px" height="500px" />
+</div>
+
 </body>
 </html>
