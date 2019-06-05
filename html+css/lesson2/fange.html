@@ -8,162 +8,255 @@
 
 </head>
 <body>
+<br><br>
 <style>
     .d-shuerte {
         height: 300px;
         margin: 0 auto;
-        line-height: 100%;
         text-align: center;
     }
 
-    table.shuerte {
-        border-collapse: collapse;
-        box-shadow: 10px 10px 10px #1d477c;
+    .d-shuerte .console {
+        height: 55px;
         margin: auto;
     }
 
-    table.shuerte td {
+    .d-shuerte .console span {
+        color: #123878;
+        font-weight: 700;
+        background-color: #e9f0fc;
+        font-size: 20px;
+        border: 1px solid #d2e0f9;
+        padding: 5px 15px;
+        width: 500px;
+        height: 26px;
+        display: block;
+        margin: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .d-shuerte table.shuerte {
+        border-collapse: collapse;
+        box-shadow: 5px 5px 10px 0px #1d477c;
+        margin: auto;
+    }
+
+    .d-shuerte table.shuerte td {
         height: 30px;
         width: 60px;
         padding: 5px 0;
         border: 2px solid rgb(204, 221, 244);
     }
 
-    table.shuerte td a {
+    .d-shuerte table.shuerte td a {
         text-decoration: none;
         color: #333;
     }
 
-    table.shuerte td p {
+    .d-shuerte table.shuerte td p {
         text-align: center;
         margin: 0;
         line-height: 30px;
         font-size: 25px;
+        color: rgb(232, 58, 59);
     }
 
-    table.shuerte td:hover {
+    .d-shuerte table.shuerte td:hover {
+        cursor: pointer;
         background-color: #eaf1fa;
     }
 
-    table.shuerte a:link, a:visited, a:hover, a:active {
-        color: rgb(232, 58, 59);
+    .d-shuerte table.shuerte td:active {
+        background-color: #fff;
     }
+
+    .d-shuerte .dbutton {
+        margin-top: 20px;
+    }
+
+    .d-shuerte .dbutton input[type='button'] {
+        width: 70px;
+        height: 30px;
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        margin: auto 10px;
+        border: none;
+        outline: none;
+        border-radius: 20px;
+        background: #28abde;
+        box-shadow: 2px 2px 10px 0px #0f3370;
+    }
+
+    .d-shuerte .dbutton input[type='button']:hover {
+        background: #70bfde;
+        cursor: pointer;
+    }
+
+    .d-shuerte .dbutton input[type='button']:active {
+        background: #28abde;
+    }
+
 </style>
 <div id="dshuerte" class="d-shuerte">
-    <table class="shuerte">
-        <tr>
-            <td>
-                <a href="javascript:;">
-                    <p>{{ message }}</p>
-                </a>
-            </td>
-            <td>
-                <a href="javascript:;">
-                    <p>b</p>
-                </a>
-            </td>
-            <td>
-                <a href="javascript:;">
-                    <p>c</p>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="javascript:;">
-                    <p>d</p>
-                </a>
-            </td>
-            <td>
-                <a href="javascript:;">
-                    <p>d</p>
-                </a>
-            </td>
-            <td>
-                <a href="javascript:;">
-                    <p>f</p>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="javascript:;">
-                    <p>g</p>
-                </a>
-            </td>
-            <td>
-                <a href="javascript:;">
-                    <p>h</p>
-                </a>
-            </td>
-            <td>
-                <a href="javascript:;">
-                    <p>i</p>
-                </a>
-            </td>
-        </tr>
-    </table>
+    <div class="console">
+        <span>{{ word }}</span>
+    </div>
+    <div>
+        <table class="shuerte">
+            <tr v-for="item in rows">
+                <td v-for="ch in item" @click="selectCh(ch)">
+                    <p>{{ ch.trim() == '' ? '空' : ch }}</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="dbutton">
+        <input type="button" value="确认" @click="submit">
+        <input type="button" value="删除" @click="backspace" @click.ctrl="clear" title="按住Ctrl点击清空">
+    </div>
+    <div class="audio">
+        <audio></audio>
+    </div>
 </div>
 </body>
+<script src="../js/util.js"></script>
 <script>
-    function initTable() {
-        // 3*3=9  5*4=20  6*5=30
-        let _word = 'hello world!';
-        let _chars = _word.split('');
-        let charsSet = new Set();
-        for (let i in _chars) {
-            charsSet.add(_chars[i]);
-        }
-        console.dir(charsSet);
-        let len = charsSet.length;
-        // 二维数组
-        let tableArr = [];
-        // 每行的列数[每行放的字母的个数]
-        let columnsMax = 3;
-        if (len > 0 && len <= 9) {
-            // 3*3=9
-            columnsMax = 3;
-        } else if (len > 9 && len <= 20) {
-            // 5*4=20
-            columnsMax = 5;
-        } else if (len > 20 && len <= 30) {
-            // 6*5=30
-            columnsMax = 6;
-        } else {
-            return '单词超长'
-        }
-        // 一行的字母
-        let rowArr = [];
-        for (let i = 0; i < charsSet.length; i++) {
-            var number = i% columnsMax;
-            rowArr.push(charsSet[1])
-        }
-
-        // var set = new Set();
-        // var fileArr = "";
-        // var depCode = $('#depCode').attr("data-value");//取值
-        // if (depCode != '' && depCode != undefined) {
-        //     var array = depCode.split(",");
-        //     for (var i = 0; i < array.length; i++) {
-        //         set.add(array[i].substr(0, 3))
-        //     }
-        //     set.forEach(function (element, sameElement, set) {
-        //         fileArr += element + ",";
-        //     });
-        //
-        // }
-        // if (fileArr.indexOf(value.substr(0, 3)) > -1) {
-        //     return false;
-        // }
-    }
-
-    initTable();
-
     let app = new Vue({
         el: '#dshuerte',
         data: {
-            message: 'Hello Vue!'
+            message: 'H',
+            word: "",
+            rows: [[]]
+        },
+        methods: {
+            // 选择字母
+            selectCh: function (val) {
+                if (/^[a-zA-Z]+$/.test(val)) {
+                    this.play(val);
+                }
+                if (this.word.length >= 30) {
+                    return false;
+                }
+                // 最后一个字符+当前字符 不为空才处理 空格只能连续出现一次
+                if ((this.word.split('').pop() + val).trim()) {
+                    this.word += val;
+                }
+            },
+            // 删除一个字母
+            backspace: function (e) {
+                if (this.word) {
+                    this.word = this.word.substring(0, this.word.length - 1);
+                }
+            },
+            // 鼠标长按清空
+            clear: function (e) {
+                this.word = "";
+            },
+            // 点击确认
+            submit: function (e) {
+                console.log(this.word);
+                return this.word;
+            },
+            // 播放读音
+            play: function (letter) {
+                let div = document.getElementById('dshuerte');
+                let audio = div.getElementsByTagName('audio')[0];
+                audio.src = "http://www.lmhynyy.com/files/voice/" + letter + "/" + letter + ".mp3";
+                audio.play()
+            }
         }
     })
+
+    /**
+     * 表格初始化
+     * 3*3=9  5*4=20  6*5=30
+     * @param word
+     * @returns {string}
+     */
+    function initTable(word) {
+        // 1. 单词切割并去重
+        let wordSet = new Set(word.toLowerCase().split(''));
+        console.dir(wordSet);
+
+        // 表格最大字符
+        let maxChar = 0;
+        // 每行的列数[每行放的字母的个数]
+        let columnsMax = 3;
+
+        // 2. 计算最大字符数和每列的字符数
+        let len = wordSet.size;
+        if (len >= 0 && len <= 9) {
+            // 3*3=9
+            columnsMax = 3;
+            maxChar = 9;
+        } else if (len > 9 && len <= 20) {
+            // 5*4=20
+            columnsMax = 5;
+            maxChar = 20;
+        } else if (len > 20 && len <= 30) {
+            // 6*5=30
+            columnsMax = 6;
+            maxChar = 30;
+        } else {
+            // 单词超长 默认5行6列
+            columnsMax = 6;
+            maxChar = 30;
+            wordSet = new Set(Array.from(wordSet).slice(0, 30));
+            len = wordSet.size;
+        }
+
+        // 3. 如果字符不够，把字符填充满
+        if (maxChar > len) {
+            // 3.1 首先在26个英文字母中填充 有可能填不满
+            let abcs = "abcdefghijklmnopqrstuvwxyz".split('');
+            for (let i = 0; i < abcs.length; i++) {
+                if (!wordSet.has(abcs[i])) {
+                    wordSet.add(abcs[i]);
+                    len++;
+                }
+                // 填满跳出
+                if (maxChar == len) {
+                    break;
+                }
+            }
+        }
+
+        // 4. Set 转成 数组
+        const chars = [...wordSet];
+        console.dir(chars);
+
+        // 5. 随机填满 如果3中没有填满[6*5的方格26个字母无法填满只能重复]，使用数组中的元素
+        while (maxChar != len) {
+            let index = parseInt(Math.random() * 200) % chars.length;
+            chars.push(chars[index]);
+            len++;
+        }
+
+        // 6. 数组打乱顺序
+        chars.shuffle();
+
+        // 7. 拼装表格数据
+        // table 二维数组
+        let tableArr = [[]];
+        let c_len = chars.length;
+        for (let i = 0; i < c_len; i++) {
+            let row = tableArr[tableArr.length - 1];
+            // 当前行数据没有满
+            if (row.length < columnsMax) {
+                row.push(chars[i]);
+            } else {
+                tableArr[tableArr.length] = [chars[i]];
+            }
+        }
+        console.dir(tableArr);
+        app._data.rows = tableArr;
+    }
+
+    // initTable('abcdefghijklmnopqrstuvwxyz!@$#%^&*()_+1234567890');
+    initTable('Hello World!');
+
 </script>
 </html>
