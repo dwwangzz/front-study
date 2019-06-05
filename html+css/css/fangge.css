@@ -1,0 +1,91 @@
+/**
+舒尔特方格css fangge.html
+ */
+.d-shuerte {
+    height: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.d-shuerte .console {
+    height: 55px;
+    margin: auto;
+}
+
+.d-shuerte .console span {
+    color: #123878;
+    font-weight: 700;
+    background-color: #e9f0fc;
+    font-size: 20px;
+    border: 1px solid #d2e0f9;
+    padding: 5px 15px;
+    width: 500px;
+    height: 26px;
+    display: block;
+    margin: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.d-shuerte table.shuerte {
+    border-collapse: collapse;
+    box-shadow: 5px 5px 10px 0px #1d477c;
+    margin: auto;
+}
+
+.d-shuerte table.shuerte td {
+    height: 30px;
+    width: 60px;
+    padding: 5px 0;
+    border: 2px solid rgb(204, 221, 244);
+}
+
+.d-shuerte table.shuerte td a {
+    text-decoration: none;
+    color: #333;
+}
+
+.d-shuerte table.shuerte td p {
+    text-align: center;
+    margin: 0;
+    line-height: 30px;
+    font-size: 25px;
+    color: rgb(232, 58, 59);
+}
+
+.d-shuerte table.shuerte td:hover {
+    cursor: pointer;
+    background-color: #eaf1fa;
+}
+
+.d-shuerte table.shuerte td:active {
+    background-color: #fff;
+}
+
+.d-shuerte .dbutton {
+    margin-top: 20px;
+}
+
+.d-shuerte .dbutton input[type='button'] {
+    width: 70px;
+    height: 30px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    margin: auto 10px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background: #28abde;
+    box-shadow: 2px 2px 10px 0px #0f3370;
+}
+
+.d-shuerte .dbutton input[type='button']:hover {
+    background: #70bfde;
+    cursor: pointer;
+}
+
+.d-shuerte .dbutton input[type='button']:active {
+    background: #28abde;
+}
