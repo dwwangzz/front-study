@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两栏布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li:first-child {
+            list-style: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        ul li {
+            line-height: 1.7em;
+        }
+
+        .right {
+            position: absolute;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background-color: #fcc;
+            opacity: 0.5;
+        }
+
+        .left {
+            margin-right: 100px;
+            height: 100px;
+            background-color: #123;
+        }
+
+        .wrapper {
+            margin-left: 50px;
+            margin-top: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            /*border-top: 1px solid red*/
+            /*overflow: hidden;*/
+        }
+
+        .content {
+            margin-left: 50px;
+            margin-top: 10px;
+            width: 50px;
+            height: 50px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<!-- 1. 两栏布局 -->
+<div class="right"></div>
+<div class="left"></div>
+<hr>
+<!-- 2. margin 的bug -->
+<div class="wrapper">
+    <div class="content"></div>
+</div>
+<p>margin塌陷：给内部div[content]设置margin-top的时候不生效，内部margin-top超过外部margin-top的时候，就会带着外部div一起动，
+    也就是说 内部和外部的div公用同一个margin-top</p>
+<p>解决方式 1：给外部div设置border-top属性，如：border-top:1px solid red</p>
+<p>解决方式 2：bfc: block format context 块级格式化上下文 |
+    正常来说每个盒子的渲染规则都是一样的，使用bfc来改变盒子的渲染规则，让盒子使用bfc语法,
+    改变父级渲染规则，让父级盒子成为bfc盒子，也可以解决margin塌陷问题
+</p>
+<ul>
+    <li>bfc 如何触发bfc</li>
+    <li>position:absolute;</li>
+    <li>display:inline-block;</li>
+    <li>float:left/right;</li>
+    <li>overflow:hidden;</li>
+</ul>
+<br>
+
+<!-- 2. margin 合并 -->
+<style>
+    .box1 {
+        background-color: red;
+        margin-right: 100px;
+    }
+    .box2 {
+        background-color: green;
+        margin-left: 100px;
+    }
+    .demo1 {
+        background-color: #f00;
+        margin-bottom: 100px;
+    }
+    .demo2 {
+        background-color: #0f0;
+        margin-top: 100px;
+    }
+
+    .demo3 {
+        background-color: #f00;
+        margin-bottom: 100px;
+    }
+
+    .demo4 {
+        background-color: #0f0;
+        margin-top: 100px;
+    }
+</style>
+<span class="box1">123</span>
+<span class="box2">456</span>
+<p>下面两个div设置了margin-bottom:100px和margin-top:100px，但是两个属性合并了</p>
+<div class="demo1">1</div>
+<div class="demo2">2</div>
+<br>
+<p>解决方式1：其中一个元素，或者两个元素外面都套一层div，触发bfc，就可以解决</p>
+<div class="demo3">3</div>
+<div style="overflow: hidden;">
+    <div class="demo4">4</div>
+</div>
+<p>解决方式2：直接设置 margin-bottom:200px</p>
+<br>
+</body>
+</html>
