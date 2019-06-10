@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子模型</title>
+</head>
+<style>
+    ul li:first-child {
+        list-style: none;
+        font-size: 20px;
+        margin-left: -30px;
+        font-weight: bold;
+    }
+
+    ul li {
+        line-height: 1.7em;
+    }
+
+</style>
+<body>
+<ul>
+    <li>盒子组成部分</li>
+    <li>盒子壁 border</li>
+    <li>内边距 padding</li>
+    <li>盒子内容 width + height</li>
+</ul>
+<div>盒子模型：margin + border + padding + (content = width + height)</div>
+<br>
+<style>
+    .wrapper {
+        border: 10px solid green;
+        width: 100px;
+        height: 100px;
+        padding: 50px;
+        background-color: red;
+    }
+    .content {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+    }
+</style>
+<p>想让里面的div居中，外面div和里面的div一样大，设置一个padding就可以</p>
+<div class="wrapper">
+    <div class="content"></div>
+</div>
+<ul>
+    <li>padding/margin/border-width</li>
+    <li>xxxx:上 右 下 左;</li>
+    <li>xxxx:上 左/右 下;</li>
+    <li>xxxx:上/下 左/右;</li>
+</ul>
+</body>
+</html>

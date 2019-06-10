@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css基础属性</title>
+    <style>
+        ul li:first-child {
+            list-style: none;
+            font-size: 20px;
+            margin-left: -30px;
+            font-weight: bold;
+        }
+
+        ul li {
+            line-height: 1.7em;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>font</li>
+    <li>font-size 浏览器默认字体大小16px 【font-size:16px】</li>
+    <li>font-weight 加粗 bold 等 strong标签</li>
+    <li>font-style 斜体 italic 等 em标签</li>
+    <li>font-family arial字体-乔布斯发明的，现在是互联网公司公用的字体</li>
+</ul>
+<ul>
+    <li style=""><h4>颜色代码</h4></li>
+    <li>土鳖式（纯英文单词）red blue yellow</li>
+    <li>颜色代码 #000000-#ffffff 16进制,如果每两位都相同就可以简写 如：#ff4400 = #f40</li>
+    <li>颜色函数 rgb(0,0,0) - rgb(255,255,255)</li>
+    <li>透明色 transparent</li>
+</ul>
+<ul>
+    <li style="list-style: none;"><h4>border[是一个复合属性]</h4></li>
+    <li>border-width 边框线宽度</li>
+    <li>border-style 如：solid</li>
+    <li>border-color</li>
+</ul>
+<style>
+.border {
+    width: 0px;
+    height: 0px;
+    border: 100px solid black;
+    border-left-color: #ff4400;
+    border-top-color: #004400;
+    border-right-color: #0000ff;
+}
+
+.border2 {
+    width: 0px;
+    height: 0px;
+    border: 100px solid transparent;
+    border-left-color: #00ff00;
+}
+
+.border3 {
+    width: 0px;
+    height: 0px;
+    border: 100px solid transparent;
+    border-right-color: #00ff50;
+    border-bottom-color: #f0ff50;
+}
+</style>
+<div class="border"></div>
+<div class="border2"></div>
+<div class="border3"></div>
+
+</body>
+</html>

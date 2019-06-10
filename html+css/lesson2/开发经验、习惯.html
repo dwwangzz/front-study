@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开发经验、习惯</title>
+    <style>
+        ul li:first-child {
+            list-style: none;
+            font-size: 20px;
+            margin-left: -30px;
+            font-weight: bold;
+        }
+        ul li {
+            line-height: 1.7em;
+        }
+        div {
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>em 相对单位</li>
+    <li>1em = 1 * 该元素的font-size; </li>
+    <li>font-size: 16px【浏览器默认字体大小】; 1em = 16px; 2em = 32px;</li>
+    <li>文字行高等于1.2倍行高 line-height: 1.2em;</li>
+</ul>
+<style>
+    .div-text {
+        border: 1px solid #000;
+        text-align: center;
+        height: 100px;
+        /*line-height: 50px;*/
+        line-height: 100px;
+    }
+
+    .div-text2 {
+        border: 1px solid #000;
+        text-indent: 2em;
+    }
+</style>
+<ul>
+    <li>文本相关样式</li>
+    <li>text-align 文本对齐方式</li>
+    <li>line-height 文本行高</li>
+    <li>text-indent 首行缩进 如：2em</li>
+    <li>text-decoration 下划线：underline、中划线：line-through、上划线：overline</li>
+    <li>cursor 鼠标样式 pointer：小手 ...</li>
+</ul>
+<div class="div-text">
+    <strong>单行水平、垂直居中</strong>：文本行高等于容器的高度；水平居中：text-align: center;
+</div>
+<br>
+<div class="div-text2">
+    <strong>首行缩进</strong>：国家主席习近平5日和俄罗斯总统普京在莫斯科大剧院共同出席中俄建交70周年纪念大会。习近平在会上发表题为《携手努力，并肩前行，开创新时代中俄关系的美好未来》的致辞。国家主席习近平5日和俄罗斯总统普京在莫斯科大剧院共同出席中俄建交70周年纪念大会。习近平在会上发表题为《携手努力，并肩前行，开创新时代中俄关系的美好未来》的致辞。国家主席习近平5日和俄罗斯总统普京在莫斯科大剧院共同出席中俄建交70周年纪念大会。
+</div>
+<br>
+<ul>
+    <li>标签的分类 display</li>
+    <li>行级元素 【内联元素|inline】</li>
+    <div>feature：内容决定元素所占位置，不可以通过css改变宽高</div>
+    <div>例： span/strong/em/a/del</div>
+    <li>块级元素 【block】</li>
+    <div>feature：独占一行，可以通过css改变宽高</div>
+    <div>例： div/p/ul/li/ol/form/address</div>
+    <li>行级块级元素 【inline-block】</li>
+    <div>feature：内容决定大小，可以改变宽高</div>
+    <li>注：凡是带有inline属性的元素都有文字特性，如img换行的时候会有空格</li>
+</ul>
+<br>
+<style>
+img.rb {
+    width: 100px;
+    margin-left: -5px;
+}
+</style>
+<img class="rb" src="img/rb.jpg" alt="迪丽热巴">
+<img class="rb" src="img/rb.jpg" alt="迪丽热巴">
+<img class="rb" src="img/rb.jpg" alt="迪丽热巴">
+<img class="rb" src="img/rb.jpg" alt="迪丽热巴">
+
+<br>
+<ul>
+    <li>自定义标签【初始化标签】</li>
+    <li>* 所有标签初始化 padding:0;margin:0;【通配符选择器权重为0，不会影响其他样式】</li>
+    <li>ul 初始化 list-style:none;padding:0;</li>
+    <li>a 初始化 text-decoration: none;</li>
+    <li><em>初始化em标签</em></li>
+</ul>
+<style>
+<!--  初始化标签 -->
+    * {
+        /*padding: 0;*/
+        /*margin: 0;*/
+        text-decoration: none;/*a标签也可以在这里初始化*/
+    }
+    a {
+        text-decoration: none;
+        color: #424242;
+    }
+    em {
+        font-style: normal;
+        color: #ff4400;
+    }
+</style>
+</body>
+</html>
