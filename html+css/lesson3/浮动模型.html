@@ -10,9 +10,9 @@
 <style>
     .wrapper {
         width: 300px;
-        height: 300px;
         border: 1px solid black;
     }
+
     .content {
         float: left;
         color: #fff;
@@ -20,18 +20,28 @@
         width: 100px;
         height: 100px;
     }
+
+    .clear {
+        /*清除两边的浮动流*/
+        clear: both;
+        /*清除左边的浮动流*/
+        /*clear: left;*/
+        /*清除右边的浮动流*/
+        /*clear: right;*/
+    }
 </style>
 <div class="wrapper">
     <div class="content">1</div>
     <div class="content">2</div>
     <div class="content">3</div>
     <div class="content">4</div>
-    <div class="content">5</div>
-    <div class="content">6</div>
+    <div class="clear"></div>
 </div>
 <p> 1. 浮动元素产生了浮动流</p>
-<p>所有产生了浮动流的元素，块级元素看不到他们</p>
-<p>产生了bfc的元素和文本类[inline]属性的元素，以及文本都能看到浮动元素</p>
+<p>a. 所有产生了浮动流的元素，块级元素看不到他们【看不到，就相当于没有】</p>
+<p>b. 产生了bfc的元素和文本类[inline]属性的元素，以及文本都能看到浮动元素</p>
+<p>c. 浮动元素因为使用float属性，也是bfc元素，所以浮动元素可以看到浮动元素，浮动和浮动之间可以站队</p>
+<p>d. 清除左右的浮动流， clear:both;</p>
 <style>
     .box {
         float: left;
@@ -40,7 +50,9 @@
         background-color: black;
         opacity: 0.5;
     }
+
     .demo {
+        float: left;
         width: 150px;
         height: 150px;
         background-color: #0f0;

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文字溢出、背景图片处理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        p {
+            /*禁止选中文字*/
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .p1 {
+            width: 300px;
+            height: 20px;
+            line-height: 20px;
+            border: 1px solid black;
+            /* 单行文本溢出打点、三件套 */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .p2 {
+            width: 300px;
+            height: 40px;
+            line-height: 20px;
+            border: 1px solid black;
+            /* 多行文本溢出无法打点，只能截断 */
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 溢出容器，要打点展示
+    1. 单行文本
+    2. 多行文本
+ -->
+<h1>文字溢出</h1>
+<!-- 1. 单行文本 -->
+<p class="p1">单行文本打点展示、单行文本打点展示、单行文本打点展示、单行文本打点展示</p>
+<br>
+<!-- 2. 多行文本 -->
+<p class="p2">多行文本只有在css3中才能实现，无法多行溢出打点，只能做截断，如果想打点，后台计算字数拼装...</p>
+
+<h1>背景图片处理</h1>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+        background-image: url(../img/rb.jpg);
+        background-size: 100px 100px;
+        background-repeat: no-repeat;
+        background-position: 20px 20px;
+        /*background-position: left center;*/
+    }
+</style>
+<div class="box"></div>
+<br>
+
+<!--网络过慢的时候，css和js就不加载了-->
+<h1>图片代替文字</h1>
+<style>
+    .a1 {
+        display: inline-block;
+        text-decoration: none;
+        color: #424242;
+        width: 142px;
+        height: 58px;
+        border: 1px solid black;
+        background-image: url(../img/taobao.png);
+        background-size: 142px 58px;
+
+        /*方法1. 图片代替文字*/
+        text-indent: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .a2 {
+        display: inline-block;
+        text-decoration: none;
+        color: #424242;
+        width: 142px;
+        height: 0px;
+        padding-top: 58px;
+        border: 1px solid black;
+        background-image: url(../img/taobao.png);
+        background-size: 142px 58px;
+        /*方法2. [height=0]让文字溢出，使用padding-top把容器撑开，padding中也可以显示背景图片*/
+        overflow: hidden;
+    }
+</style>
+<p>方法1. 使用首行缩进[text-indent]、不换行[white-space]、溢出不显示[overflow]属性实现</p>
+<a class="a1" href="http://www.taobao.com" target="_blank">淘宝网</a>
+<p>方法2. 高度设置为0，则文本就溢出到容器外面了，使用padding-top把容器撑开，padding中也可以显示背景图片，在使用溢出不显示把文字隐藏[overflow]</p>
+<a class="a2" href="http://www.taobao.com" target="_blank">淘宝网</a>
+
+</body>
+</html>
