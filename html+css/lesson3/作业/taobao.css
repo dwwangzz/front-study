@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-style: normal;
+}
+
+body, button, input, select, textarea {
+    font: 12px/1.5 tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f53', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #3C3C3C;
+}
+
+.cover {
+    background: #f5f5f5;
+}
+
+.top {
+    margin: 0 auto;
+    width: 1190px;
+    height: 35px;
+    background: #f5f5f5;
+}
+
+.ul-line {
+
+}
+
+.li-line-left {
+    float: left;
+    line-height: 35px;
+    padding: 0 10px;
+}
+
+.li-line-left:hover {
+    background: #fff;
+    cursor: pointer;
+}
+
+.li-line-left a {
+    float: left;
+    margin-right: 7px;
+    font-size: 12px;
+}
+
+.li-line-left i {
+    height: 7px;
+}
+
+.li-line-right {
+    float: right;
+    line-height: 35px;
+    padding: 0 10px;
+}
+
+.li-line-right:hover {
+    background: #fff;
+    cursor: pointer;
+}
+
+.li-line-right a {
+    float: left;
+    margin-right: 7px;
+    font-size: 12px;
+}
+
+.li-line-right i {
+    height: 7px;
+}
+
+.vip-icon {
+    margin-top: 12px;
+    width: 17px;
+    height: 16px;
+    background: url(img/top-vip.png) 0 -33px no-repeat;
+    background-size: 16px auto;
+}
+
+.i-down {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url(img/down.png) 0 0 no-repeat;
+    background-size: 7px auto;
+}
+
+
+
