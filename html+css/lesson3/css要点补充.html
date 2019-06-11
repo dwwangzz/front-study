@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css要点补充</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .wrapper {
+        height: 30px;
+        background-color: red;
+    }
+
+    .content {
+        margin: 0 auto;
+        width: 1200px;
+        height: 30px;
+        background-color: yellow;
+    }
+</style>
+<body>
+<h3>1. 两侧红色，在浏览器宽度变窄的时候会变小，最终到没有，子div中固定宽度之后，使用margin:0 auto; 属性可以实现</h3>
+<div class="wrapper">
+    <div class="content"></div>
+</div>
+
+<h3>2. 文本类属性的问题</h3>
+inline inline-block 文本类元素，凡是带有inline的元素都带有文本类属性
+<br>
+<style>
+    img {
+        width: 200px;
+        /*margin-left: -5px;*/
+    }
+</style>
+<img src="../img/rb.jpg" alt="热巴">
+<img src="../img/rb.jpg" alt="热巴">
+<img src="../img/rb.jpg" alt="热巴">
+<img src="../img/rb.jpg" alt="热巴">
+
+
+<h3>3. 元素使用position: absolute/fixed | float: left/right 时，元素内部回自动设置display=inline-block;</h3>
+
+<style>
+    span.s1 {
+        float: left;
+        /*position: absolute;*/
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+</style>
+<span class="s1">123</span>
+<br><br><br><br><br>
+
+<h3>4. 文本和图片放在一起, 默认底对齐，使用vertical-align: 10px/middle/top/... 调节文本对齐方式</h3>
+<style>
+    .s2 {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        font-size: 30px;
+    }
+    .s3 {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        font-size: 30px;
+        vertical-align: -20px;
+        /*vertical-align: middle;*/
+    }
+</style>
+<br>
+<span class="s2"></span> 如果前面span中没有文字，则和span底对齐
+<br><br>
+<span class="s2">123</span>span中有文字了，默认和span中的文字底对齐
+<br><br>
+<span class="s3">123</span>span中有文字了，默认和span中的文字底对齐
+<br><br>
+
+</body>
+</html>

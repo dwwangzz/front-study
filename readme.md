@@ -39,3 +39,9 @@ a 标签的四种样式
 2、a:active 必须被置于 a:hover 之后，才是有效的。
 
 总结来说就是 link、visited、hover、active。实际编写当中我们很容易不按顺序来写，这里需要特别注意
+
+# 元素自动转为 inline-block
+- position: absolute 
+- float: left/right
+
+上面两个属性可以，自动设置display=inline-block
