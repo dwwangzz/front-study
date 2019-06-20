@@ -1,0 +1,7 @@
+/*文字图片样式*/
+pre.img {
+    font-size: 8pt;
+    letter-spacing: 4px;
+    line-height: 8pt;
+    font-weight: bold;
+}

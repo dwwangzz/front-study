@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<body>
+<script>
+    /**
+     * 闭包：内部的函数被保存了外部，一定生成闭包
+     * 致作用域链不释放，造成内存泄漏
+     * 闭包的作用：
+     * 1. 实现共有变量
+     * 2. 可以做成缓存
+     * 3. 可以实现封装，属性私有化
+     * 4. 模块化开发，防止污染全局变量
+     * @returns {b}
+     */
+    function a() {
+        let num = 100;
+
+        function b() {
+            num++;
+            console.log(num);
+        }
+
+        return b;
+    }
+
+    const demo = a();
+    demo();
+    demo();
+
+    /**
+     * 闭包的作用：
+     * 1. 实现共有变量
+     * 2. 可以做成缓存
+     * 3. 可以实现封装，属性私有化
+     * 4. 模块化开发，防止污染全局变量
+     */
+    function add() {
+        let i = 0;
+
+        function count() {
+            i++;
+            console.log(i)
+        }
+
+        return count;
+    }
+
+    let cnt = add();
+    cnt();
+    cnt();
+    cnt();
+
+    function test() {
+        let num = 100;
+
+        function a() {
+            num++;
+            console.log('a():' + num);
+        }
+
+        function b() {
+            num--;
+            console.log('b():' + num);
+        }
+
+        return [a, b];
+    }
+
+    let myArr = test();
+    myArr[0](); // 101
+    myArr[1](); // 100
+</script>
+<p>立即执行函数，用于初始化功能的函数，函数执行完之后，函数的引用就会被释放</p>
+<script>
+    let sum = (function (a, b) {
+        let sum = a + b;
+        console.log('立即执行函数：' + sum);
+        return sum;
+    }(1, 2));
+
+    !function test() {
+        console.log('test')
+    }();
+</script>
+<pre>
+    // 两种写法
+    // 1. (function(){}()); W3C 建议第一种
+    // 2. (function(){})();
+    // 只有表达式才能被执行符号执行
+
+    // 报错
+    function test(){
+        console.log('test')
+    }();
+    // 不报错 也不会执行，把(1,2)当成一个没有意义的表达式
+    function test(a,b){
+        console.log('test')
+    }(1,2);
+    // 可以直接执行
+    let test = function(){
+        console.log('test')
+    }();
+
+
+    // 能被执行符号执行的表达式，名字就会被自动忽略
+    // console.log(test) //undefined
+    // 下面这几个也可以立即执行，因为前面加了+/-/!/()之后就变成了表达式了，表达式是可以用执行符号执行的
+    + function test(){
+        console.log('test')
+    }();
+    - function test(){
+        console.log('test')
+    }();
+    !function test() {
+        console.log('test')
+    }();
+    (function test() {
+        console.log('test')
+    }());
+    (function test() {
+        console.log('test')
+    })();
+</pre>
+
+<script>
+    function test2() {
+        var arr = [];
+        for (var i = 0; i < 10; i++) {
+            arr[i] = function () {
+                console.log(i);
+            }
+        }
+        return arr;
+    }
+
+    var myArr2 = test2();
+    myArr2[0]();
+    myArr2[1]();
+    myArr2[2]();
+
+    // ----------------- let 变量 和 var 变量区别
+    function test3() {
+        let arr = [];
+        for (let i = 0; i < 10; i++) {
+            arr[i] = function () {
+                console.log(i);
+            }
+        }
+        return arr;
+    }
+
+    let myArr3 = test3();
+    myArr3[0]();
+    myArr3[1]();
+    myArr3[2]();
+</script>
+</body>
+</html>
