@@ -42,6 +42,68 @@ a 标签的四种样式
 
 # 元素自动转为 inline-block
 - position: absolute 
-- float: left/right
+- float: left/right 
 
 上面两个属性可以，自动设置display=inline-block
+
+# line-height 知识点
+> 微软雅黑默认行高： 1.32
+
+> 宋体默认行高： 1.41
+- 子元素继承：
+    - 数值方式：line-height: 1.5;可以直接被子元素继承
+    - 其他方式：%、em、px 子元素都是继承的多少像素，继承计算后的值
+```css
+{
+    line-height: normal;
+    /*使用数字作为值，子元素可以继承1.5这个值，而不是计算后的多少像素*/
+    line-height: 1.5;
+    /*下面子元素继承的是计算后的值，??px*/
+    line-height: 200%;
+    line-height: 5em;
+    line-height: 50px;
+}
+```
+
+# line-family
+```css
+* {
+    /*宋体的三种写法*/
+    font-family: '宋体';
+    font-family: SimSun;
+    /*\u5b8b\u4f53 宋体的Unicode编码去掉u*/
+    font-family: '\5b8b\4f53';
+}
+```
+
+# @规则
+```
+@charset    设置样式表的编码
+@import     导入其他样式文件
+@meida      媒体查询
+@font-face  自定义字体
+```
+
+# base标签
+<base href="http://www.baidu.com" target="_blank">
+a标签默认的前缀地址，和打开方式
+
+# inline-block 元素换行符问题
+如两个image标签换行，后面会有个空格，这个空格的大小是font-size控制的，可以用font-size=0的方式来去除这个空格
+
+# h标签使用场景
+- h1：标题，一个页面中h1标签只能出现一次，如果没有合适的，可以以图换字，logo
+- h2：副标题，如：小标题导航栏
+- h3：页面中的版块标题
+- h4：版块内列表的小标题
+- h5、h6：版块内在嵌套版块、标题
+
+# 盒模型
+```
+    1. 标准盒模型
+        总宽度 = border（左右） + width + padding（左右）
+        总高度 = border（上下） + height + padding（上下）
+    2. IE盒模型（怪异盒模型） box-sizing: border-box;
+        总宽度 = width
+        总高度 = height
+```

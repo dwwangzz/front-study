@@ -3,18 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <title>淘宝网 - 淘！我喜欢</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="favicon.ico">
+    <!--    <base href="http://www.baidu.com" target="_blank">-->
+    <style>
+
+    </style>
 </head>
 <body>
+<!--
+h1：标题，一个页面中h1标签只能出现一次，如果没有合适的，可以以图换字，logo
+h2：副标题，如：小标题导航栏
+h3：页面中的版块标题
+h4：版块内列表的小标题
+h5、h6：版块内在嵌套版块、标题
+-->
+<!--
+    盒模型
+        1. 标准盒模型
+            总宽度 = border（左右） + width + padding（左右）
+            总高度 = border（上下） + height + padding（上下）
+        2. IE盒模型（怪异盒模型）
+            总宽度 = width
+            总高度 = height
+-->
 <!--
     内容、颜色块、间距、边框
 -->
 <!-- 头部信息 -->
-<div id="headMessage">
-
+<div id="headMessage" class="clearfix leayer">
+    <ul class="fl">
+        <li>
+            <span>中国大陆</span>
+            <span class="iconfont arrow">&#xe733;</span>
+        </li>
+        <li class="mr7">
+            <a href="#" class="login mr7">亲，请登录</a>
+            <a href="#">免费注册</a>
+        </li>
+        <li><a href="#">手机逛淘宝</a></li>
+    </ul>
+    <ul class="fr">
+        <li>
+            <a href="#">我的淘宝</a>
+            <span class="iconfont arrow">&#xe733;</span>
+        </li>
+        <li>
+            <span class="iconfont mr5 c4">&#xe63a;</span>
+            <a href="#">购物车</a>
+            <strong>0</strong>
+            <span class="iconfont">&#xe733;</span>
+        </li>
+        <li>
+            <a href="#"><span class="iconfont mr5 store">&#x3432;</span>收藏夹</a>
+            <span class="iconfont arrow">&#xe733;</span>
+        </li>
+        <li>
+            <a href="#">商品分类</a>
+        </li>
+        <li class="line">|</li>
+        <li>
+            <a href="#">千牛卖家中心</a>
+            <span class="iconfont arrow">&#xe733;</span>
+        </li>
+        <li>
+            <a href="#">联系客服</a>
+            <span class="iconfont arrow">&#xe733;</span>
+        </li>
+        <li>
+            <span class="iconfont mr5 c4">&#xe66d;</span>
+            <a href="#">网站导航</a>
+            <span class="iconfont arrow">&#xe733;</span>
+        </li>
+    </ul>
 </div>
 <!-- 头部广告 -->
 <div id="headAd">
-
+    <div class="leayer clearfix">
+        <a href="#" class="fl go"><img src="img/go.png" alt="go.png"></a>
+        <ul class="fr">
+            <!--  li.item$*5>a.fr[href=#]>img[src=img/adimg_0$.jpg]^h3+p-->
+            <li class="item1">
+                <a href="#" class="fr"><img src="img/adimg_01.jpg" alt=""></a>
+                <a href="#"><h3>电视会场</h3></a>
+                <a href="#"><p>最高降2000</p></a>
+            </li>
+            <li class="item2">
+                <a href="#" class="fr"><img src="img/adimg_02.jpg" alt=""></a>
+                <a href="#"><h3>电视会场</h3></a>
+                <a href="#"><p>最高降2000</p></a>
+            </li>
+            <li class="item3">
+                <a href="#" class="fr"><img src="img/adimg_03.jpg" alt=""></a>
+                <a href="#"><h3>电视会场</h3></a>
+                <a href="#"><p>最高降2000</p></a>
+            </li>
+            <li class="item4">
+                <a href="#" class="fr"><img src="img/adimg_04.jpg" alt=""></a>
+                <a href="#"><h3>电视会场</h3></a>
+                <a href="#"><p>最高降2000</p></a>
+            </li>
+            <li class="item5">
+                <a href="#" class="fr"><img src="img/adimg_05.jpg" alt=""></a>
+                <a href="#"><h3>电视会场</h3></a>
+                <a href="#"><p>最高降2000</p></a>
+            </li>
+        </ul>
+    </div>
 </div>
 <!-- 头部搜索 -->
 <div id="headSearch">

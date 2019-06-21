@@ -10,9 +10,11 @@
             margin-left: -30px;
             font-weight: bold;
         }
+
         ul li {
             line-height: 1.7em;
         }
+
         div {
             margin-left: 40px;
         }
@@ -21,7 +23,7 @@
 <body>
 <ul>
     <li>em 相对单位</li>
-    <li>1em = 1 * 该元素的font-size; </li>
+    <li>1em = 1 * 该元素的font-size;</li>
     <li>font-size: 16px【浏览器默认字体大小】; 1em = 16px; 2em = 32px;</li>
     <li>文字行高等于1.2倍行高 line-height: 1.2em;</li>
     <li>vertical-align: 10px/middle 文本对齐方式</li>
@@ -66,19 +68,27 @@
     <div>例： div/p/ul/li/ol/form/address</div>
     <li>行级块级元素 【inline-block】</li>
     <div>feature：内容决定大小，可以改变宽高</div>
-    <li>注：凡是带有inline属性的元素都有文字特性，如img换行的时候会有空格</li>
+    <li>注：凡是带有inline属性的元素都有文字特性，如img换行的时候会有空格，可以将其父元素加一个font-size:0来处理，或者使用margin-left: -5px;</li>
 </ul>
 <br>
 <style>
-img.rb {
-    width: 100px;
-    margin-left: -5px;
-}
+    .d-img {
+        /*父级*/
+        font-size: 0;
+    }
+
+    img.rb {
+        width: 100px;
+        /*margin-left: -5px;*/
+    }
 </style>
-<img class="rb" src="../img/rb.jpg" alt="迪丽热巴">
-<img class="rb" src="../img/rb.jpg" alt="迪丽热巴">
-<img class="rb" src="../img/rb.jpg" alt="迪丽热巴">
-<img class="rb" src="../img/rb.jpg" alt="迪丽热巴">
+<div class="d-img">
+    <img class="rb" src="../img/rb.jpg" alt="迪丽热巴">
+    <img class="rb" src="../img/rb.jpg" alt="迪丽热巴">
+    <img class="rb" src="../img/rb.jpg" alt="迪丽热巴">
+    <img class="rb" src="../img/rb.jpg" alt="迪丽热巴">
+</div>
+
 
 <br>
 <ul>
@@ -89,16 +99,17 @@ img.rb {
     <li><em>初始化em标签</em></li>
 </ul>
 <style>
-<!--  初始化标签 -->
     * {
         /*padding: 0;*/
         /*margin: 0;*/
-        text-decoration: none;/*a标签也可以在这里初始化*/
+        text-decoration: none; /*a标签也可以在这里初始化*/
     }
+
     a {
         text-decoration: none;
         color: #424242;
     }
+
     em {
         font-style: normal;
         color: #ff4400;
