@@ -30,7 +30,7 @@ i {
     font-style: normal;
 }
 
-button {
+input, button {
     outline: none;
 }
 
@@ -48,7 +48,7 @@ button {
     float: right;
 }
 
-.leayer {
+.layer {
     width: 1190px;
     margin: 0 auto;
 }
