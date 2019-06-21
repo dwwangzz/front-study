@@ -60,14 +60,38 @@ c. 外部css文件
 input[name='username']
 <br>
 属性优先级
-<h5>!important > 行间样式 > id > class|属性选择器 > 标签选择器 > 通配符选择器</h5>
+<h3>!important > 行间样式 > id > class|属性选择器 > 标签选择器 > 通配符选择器</h3>
 <h3>3. css权重 256进制</h3>
-<p>!important Infinity[正无穷]</p>
-<p>行间样式 1000</p>
-<p>id 100</p>
-<p>class|属性选择器|伪类选择器 10</p>
-<p>标签选择器|伪元素选择器 1</p>
-<p>通配符选择器 0</p>
+<table>
+    <tr>
+        <th>选择器类型</th>
+        <th>权重</th>
+    </tr>
+    <tr>
+        <td>!important Infinity</td>
+        <td>[正无穷]</td>
+    </tr>
+    <tr>
+        <td>行间样式</td>
+        <td>1000</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>100</td>
+    </tr>
+    <tr>
+        <td>class|属性选择器|伪类选择器</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>标签选择器|伪元素选择器</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>通配符选择器</td>
+        <td>0</td>
+    </tr>
+</table>
 
 <h3>4. css复杂选择器</h3>
 <h5>a. 父子选择器</h5>
