@@ -262,5 +262,49 @@
     color: #f50;
 }
 
+#nav h2 {
+    width: 190px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #f40;
+}
+
+#nav ul {
+    margin-left: 190px;
+    height: 30px;
+    background-image: linear-gradient(to right, #ff9000, #ff5000);
+}
+
+#nav ul li {
+    position: relative;
+    float: left;
+    line-height: 30px;
+    text-align: center;
+    padding: 0 5px;
+    margin: 0 7px;
+}
+
+#nav ul li > a {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+}
+
+#nav ul li:hover:before {
+    position: absolute;
+    content: '';
+    width: 23px;
+    height: 13px;
+    background-image: url("../img/ico_01.gif");
+    top: -13px;
+    left: 50%;
+    margin-left: -12px;
+
+}
+
 
 
