@@ -201,6 +201,7 @@
     color: #fff;
     font-weight: bold;
     background-image: linear-gradient(to right, #ff9000, #ff5000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff9000', endColorstr='#ffff5000', GradientType=1);
     border-radius: 6px 6px 0 0;
 }
 
@@ -244,6 +245,7 @@
     font-size: 18px;
     color: #fff;
     background-image: linear-gradient(to right, #ff9000, #ff5000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff9000', endColorstr='#ffff5000', GradientType=1);
     border: none;
     border-radius: 0 30px 30px 0;
 }
@@ -274,9 +276,10 @@
 }
 
 #nav ul {
-    margin-left: 190px;
+    width: calc(100% - 190px);
     height: 30px;
     background-image: linear-gradient(to right, #ff9000, #ff5000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff9000', endColorstr='#ffff5000', GradientType=1);
 }
 
 #nav ul li {
@@ -303,8 +306,146 @@
     top: -13px;
     left: 50%;
     margin-left: -12px;
+}
+
+#firstScreen div {
+    /*background-color: rgba(0, 0, 0, .1);*/
+}
+
+#firstScreen .firstLeft {
+    width: 890px;
+}
+
+/*侧边导航*/
+#firstScreen .firstLeft .sideNav {
+    width: 188px;
+    height: 522px;
+    padding: 2px 0;
+    border: 1px solid #f50;
+    border-top: none;
+}
+
+#firstScreen .firstLeft .sideNav ul {
+    margin-top: 5px;
+}
+
+#firstScreen .firstLeft .sideNav ul li {
+    float: left;
+    width: 168px;
+    padding-left: 20px;
+    height: 32px;
+    line-height: 32px;
+}
+
+#firstScreen .firstLeft .sideNav ul li:hover {
+    background-color: #ffe4dc;
+    color: #f50;
+}
+
+#firstScreen .firstLeft .sideNav li:hover a {
+    color: #f50;
+}
+
+#firstScreen .firstLeft .sideNav li span {
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+#firstScreen .firstLeft .sideNav a {
+    color: #666;
+    font-size: 14px;
+}
+
+#firstScreen .firstLeft .sideNav a:hover {
+    text-decoration: underline;
+}
+
+/*图片1容器*/
+#firstScreen .firstLeft .img1Box {
+    width: 690px;
+    height: 282px;
+    margin-top: 10px;
+}
+
+#firstScreen .leftBtn {
+    position: absolute;
+    left: 0;
+    border-radius: 0 50% 50% 0;
+}
+
+#firstScreen .rightBtn {
+    position: absolute;
+    right: 0;
+    border-radius: 50% 0 0 50%;
+}
+
+#firstScreen .firstLeft .img1Box .pic {
+    position: relative;
+}
+
+#firstScreen .firstLeft .img1Box .pic:hover button {
+    display: block;
+}
+
+#firstScreen .firstLeft .img1Box .circle {
+    position: absolute;
+    width: 70px;
+    background-color: rgba(255, 255, 255, .3);
+    border-radius: 10px;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -35px;
+    padding: 3px 0;
+    font-size: 0;
 
 }
+
+#firstScreen .firstLeft .img1Box .circle span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    line-height: 14px;
+    margin: 0 3px;
+    cursor: pointer;
+}
+
+#firstScreen .firstLeft .img1Box .circle span.active {
+    background-color: #f50;
+}
+
+/*图片2容器*/
+#firstScreen .firstLeft .img2Box {
+    width: 690px;
+    height: 220px;
+}
+
+/*淘宝头条*/
+#firstScreen .firstLeft .news {
+
+}
+
+/*右边内容*/
+#firstScreen .firstRight {
+    width: 290px;
+    height: 621px;
+}
+
+#firstScreen button {
+    position: absolute;
+    display: none;
+    height: 30px;
+    width: 25px;
+    line-height: 30px;
+    color: #fff;
+    border: none;
+    top: 50%;
+    margin-top: -15px;
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
 
 
 

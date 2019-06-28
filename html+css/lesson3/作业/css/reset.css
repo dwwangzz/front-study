@@ -77,3 +77,7 @@ input, button {
     margin-right: 10px;
 }
 
+.relative {
+    position: relative;
+}
+
