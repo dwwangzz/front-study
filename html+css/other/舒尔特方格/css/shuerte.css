@@ -127,7 +127,6 @@ a {
     float: left;
     width: 87px;
     height: 45px;
-
     margin-right: 10px;
     text-align: center;
     line-height: 45px;
@@ -271,6 +270,11 @@ a {
     font-size: 30px;
     color: #fff;
     z-index: 100;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .lm_fanyi {
