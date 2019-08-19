@@ -1,0 +1,434 @@
+/* CSS Document */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+body {
+    line-height: 1;
+    font-family: "Microsoft YaHei";
+    background: #fefcee;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.marginauto {
+    margin: 0 auto;
+}
+
+.clearfix:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+/*弹框*/
+.lm_dh {
+    width: 930px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.lm_dh span {
+    display: block;
+    float: left;
+    margin-left: 10px;
+    background: url(../images/tk_title.png) no-repeat left center;
+    padding-left: 40px;
+}
+
+.lm_dh .lm_bt {
+    color: #000;
+    font-size: 14px;
+    line-height: 40px;
+    background: #e2d7ea;
+}
+
+.lm_dh .lm_button {
+    display: block;
+    width: 53px;
+    height: 26px;
+    border: 0px solid red;
+    float: right;
+    background: url(../images/voice.png) no-repeat;
+    background-position: 0px 0px;
+    margin-right: 20px;
+    margin-top: 6px;
+}
+
+/*单词拼写*/
+.lm_info {
+    padding: 10px;
+    width: 910px;
+    height: auto;
+    border: 0px solid red;
+    background: #fff;
+}
+
+.ciyi {
+    display: block;
+    float: left;
+    width: 87px;
+    height: 45px;
+
+    margin-right: 10px;
+    text-align: center;
+    line-height: 45px;
+    text-decoration: none;
+    color: #040403;
+    background: url(../images/ciyi.png) no-repeat center center;
+}
+
+.ciyi2 {
+    display: block;
+    float: left;
+    width: 80px;
+    height: 22px;
+    border: 1px solid #e6e6e6;
+    background-color: #b8f125;
+    text-align: center;
+    line-height: 22px;
+    text-decoration: none;
+    border-radius: 3px;
+    color: #7c7c7c;
+    margin-top: 3px;
+    margin-left: 15px;
+}
+
+.zhongwen {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.zhongwen2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff0000;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+
+.lm_info1 {
+    width: 600px;
+    height: auto;
+    overflow: hidden;
+    border: 0px solid red;
+    margin: auto;
+    text-align: center;
+}
+
+.words {
+    width: 425px;
+    height: 50px;
+    border: 2px solid #acacac;
+    outline: none;
+    text-indent: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    border-radius: 3px;
+    float: left;
+    margin-left: 25px;
+}
+
+.words_yw {
+    font-size: 30px;
+    color: #fc0d1b;
+    text-align: left;
+    margin-left: 25px;
+    border: 0px solid red;
+    float: left;
+    width: 500px;
+    margin-top: 20px;
+}
+
+.words_true {
+    font-size: 30px;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    height: 56px;
+    border: 0px solid red;
+    float: left;
+    width: 56px;
+    background: url(../images/tex_false.png) no-repeat;
+}
+
+.words_false {
+    font-size: 30px;
+    color: red;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 10px;
+    background: url(../images/tex_false.png) no-repeat;
+}
+
+.lm_info2 {
+    display: table;
+    width: 554px;
+    color: #666;
+    height: 170px;
+    background-color: #FAFAFA;
+    box-shadow: 0px 0px 25px #D5D5D5;
+    font-weight: bold;
+    font-size: 20px;
+    border: solid 1px #D5D5D5;
+    overflow: hidden;
+    margin: auto;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+
+.lm_time {
+    width: 56px;
+    height: 56px;
+    background: url(../images/lm_time.png) no-repeat;
+    position: absolute;
+    margin-left: 700px;
+    text-align: center;
+    line-height: 66px;
+    font-size: 30px;
+    color: #fff;
+    z-index: 100;
+}
+
+.lm_fanyi {
+    width: 554px;
+    height: 40px;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.lm_play {
+    display: block;
+    float: left;
+    background: url(../images/lm_volume.png) no-repeat;
+    width: 22px;
+    height: 22px;
+    border: 0px solid red;
+    background-size: 20px 20px;
+    margin-top: 13px;
+}
+
+.button_next {
+    display: block;
+    width: 48px;
+    height: 48px;
+    background: url(../images/lm_next.png) no-repeat;
+
+    float: left;
+    margin-left: 100px;
+}
+
+.study_info {
+
+    overflow: hidden;
+}
+
+.lm_info3 {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border: 0px solid red;
+    margin: auto;
+}
+
+.shuerte {
+    float: left;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 10px;
+    margin-left: 50px;
+    position: relative;
+    border-top-right-radius: 0;
+}
+
+.shuerte td {
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    font-size: 26px;
+    color: #3d3d3d;
+    border-radius: 12px;
+    vertical-align: central;
+    margin: 2px 1px 2px 1px;
+    display: inline-block;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.shuerte td:hover {
+    cursor: pointer;
+    background-color: #e2d7ea;
+}
+
+.shuerte td:active {
+    background-color: #fff;
+}
+
+.shuerte td p {
+    line-height: 42px;
+}
+
+.shuerte .close {
+    position: absolute;
+    left: 100%;
+    top: -1px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    text-align: center;
+    line-height: 30px;
+    color: #8ccab7;
+    font-size: 12px;
+    width: 50px;
+    border-left: 1px solid #fff;
+    cursor: pointer;
+}
+
+.lm_footer {
+    width: 100%;
+    height: 30px;
+    background-color: #babce1;
+    border-top: 1px solid #e6e6e6;
+    line-height: 30px;
+    border-bottom: 2px solid #bdbdbd;
+}
+
+.lm_footer2 {
+    float: left;
+    margin-left: 30px;
+}
+
+.lm_footer2 input {
+    background: #ced7e7;
+    border: 1px solid #35a7b9;
+    color: #35a7b9;
+    text-align: center;
+    border-radius: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.lm_footer2 .jiyi-time {
+    width: 70px;
+}
+
+.lm_footer2 .shenci-cnt {
+    width: 20px;
+}
+
+.lm_footer2 .shibie-cnt {
+    width: 20px;
+}
+
+.foot_exit {
+    display: block;
+    width: 28px;
+    height: 28px;
+    border: 0 solid red;
+    float: right;
+    background: url(../images/exit.png) no-repeat 0 0;
+    margin-right: 20px;
+}
+
+/*红*/
+.zm-bg0 {
+    background-color: rgb(255, 228, 233);
+}
+
+/*黄*/
+.zm-bg1 {
+    background-color: rgb(255, 245, 227);
+}
+
+/*蓝*/
+.zm-bg2 {
+    background-color: rgb(222, 242, 249);
+}
+
+/*紫*/
+.zm-bg3 {
+    background-color: rgb(251, 235, 245);
+}
+
+/*绿*/
+.zm-bg4 {
+    background-color: rgb(243, 248, 228);
+}

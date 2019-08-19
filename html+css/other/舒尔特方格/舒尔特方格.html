@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <title>单元学习</title>
+</head>
+
+<body>
+<!--头部-->
+<div id="dshuerte" class="lm_dh">
+    <div class="lm_bt">
+        <a href="#" class="lm_button"></a>
+        <span>无敌基础新版－unit 1-单元学习</span>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+
+    <!--内容-->
+    <div class="lm_info">
+        <div class="lm_info1">
+            <div class="lm_time"><s></s>4</div>
+            <div class="lm_fanyi">
+                <a href="" class="ciyi">词义显示</a>
+                <font class="zhongwen">漂亮的</font>
+                <a href="#" class="lm_play"></a>
+                <div>
+                    <audio>
+                        <source src="" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+            <div class="lm_info2">
+                <div class="words_yw">pretty</div>
+                <input class="words" v-model="word">
+                <div class="words_true"></div>
+
+
+            </div>
+            <div class="lm_info3">
+                <div class="shuerte" id="shuerte">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tr v-for="(item, indexTr) in rows">
+                            <td v-for="(ch, indexTd) in item" @click="selectCh(ch)" :class="'zm-bg'+(indexTr*6+indexTd)%5">
+                                <p>{{ ch.trim() == '' ? '空' : ch }}</p>
+                            </td>
+                        </tr>
+                    </table>
+                    <a class="close">关闭</a>
+                </div>
+                <div class="study_info" style="display: block;">
+                    <a href="" class="button_next" title="下一个单词" style="display: block;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="lm_footer">
+        <div class="lm_footer2">
+            记忆时间:
+            <input class="jiyi-time" type="text" value="00:00:00" style="width:70px;" readonly="readonly">
+            当前生词数:
+            <input class="shenci-cnt" type="text" value="0" style="width:20px;" readonly="readonly">
+            识别总次数:
+            <input class="shibie-cnt" type="text" value="0" style="width:20px;" readonly="readonly">
+        </div>
+        <div><a href="#" class="foot_exit"></a></div>
+    </div>
+
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="../../static/js/util.js"></script>
+<script>
+    let app = new Vue({
+        el: '#dshuerte',
+        data: {
+            message: 'H',
+            bgColorIndex: 1,
+            word: "",
+            rows: [[]]
+        },
+        methods: {
+            // 选择字母
+            selectCh: function (val) {
+                if (/^[a-zA-Z]+$/.test(val)) {
+                    this.play(val);
+                }
+                if (this.word.length >= 30) {
+                    return false;
+                }
+                // 最后一个字符+当前字符 不为空才处理 空格只能连续出现一次
+                if ((this.word.split('').pop() + val).trim()) {
+                    this.word += val;
+                }
+            },
+            // 删除一个字母
+            backspace: function (e) {
+                if (this.word) {
+                    this.word = this.word.substring(0, this.word.length - 1);
+                }
+            },
+            // 鼠标长按清空
+            clear: function (e) {
+                this.word = "";
+            },
+            // 点击确认
+            submit: function (e) {
+                console.log(this.word);
+                alert('您输入的是【' + this.word + '】');
+                return this.word;
+            },
+            // 播放读音
+            play: function (letter) {
+                let div = document.getElementById('dshuerte');
+                let audio = div.getElementsByTagName('audio')[0];
+                audio.src = "http://www.lmhynyy.com/files/voice/" + letter + "/" + letter + ".mp3";
+                audio.play()
+            }
+        }
+    })
+
+    /**
+     * 表格初始化
+     * 3*3=9  5*4=20  6*5=30
+     * @param word
+     * @returns {string}
+     */
+    function initTable(word) {
+        // 1. 单词切割并去重
+        let wordSet = new Set(word.toLowerCase().split(''));
+        console.dir(wordSet);
+
+        // 表格最大字符
+        let maxChar = 0;
+        // 每行的列数[每行放的字母的个数]
+        let columnsMax = 3;
+
+        // 2. 计算最大字符数和每列的字符数
+        let len = wordSet.size;
+        if (len >= 0 && len <= 9) {
+            // 3*3=9
+            columnsMax = 3;
+            maxChar = 9;
+        } else if (len > 9 && len <= 20) {
+            // 5*4=20
+            columnsMax = 5;
+            maxChar = 20;
+        } else if (len > 20 && len <= 30) {
+            // 6*5=30
+            columnsMax = 6;
+            maxChar = 30;
+        } else {
+            // 单词超长 默认5行6列
+            columnsMax = 6;
+            maxChar = 30;
+            wordSet = new Set(Array.from(wordSet).slice(0, 30));
+            len = wordSet.size;
+        }
+
+        // 3. 如果字符不够，把字符填充满
+        if (maxChar > len) {
+            // 3.1 首先在26个英文字母中填充 有可能填不满
+            let abcs = "abcdefghijklmnopqrstuvwxyz".split('');
+            for (let i = 0; i < abcs.length; i++) {
+                if (!wordSet.has(abcs[i])) {
+                    wordSet.add(abcs[i]);
+                    len++;
+                }
+                // 填满跳出
+                if (maxChar == len) {
+                    break;
+                }
+            }
+        }
+
+        // 4. Set 转成 数组
+        const chars = [...wordSet];
+        console.dir(chars);
+
+        // 5. 随机填满 如果3中没有填满[6*5的方格26个字母无法填满只能重复]，使用数组中的元素
+        while (maxChar != len) {
+            let index = parseInt(Math.random() * 200) % chars.length;
+            chars.push(chars[index]);
+            len++;
+        }
+
+        // 6. 数组打乱顺序
+        chars.shuffle();
+
+        // 7. 拼装表格数据
+        // table 二维数组
+        let tableArr = [[]];
+        let c_len = chars.length;
+        for (let i = 0; i < c_len; i++) {
+            let row = tableArr[tableArr.length - 1];
+            // 当前行数据没有满
+            if (row.length < columnsMax) {
+                row.push(chars[i]);
+            } else {
+                tableArr[tableArr.length] = [chars[i]];
+            }
+        }
+        console.dir(tableArr);
+        app._data.rows = tableArr;
+    }
+
+    // initTable('abcdefghijklmnopqrstuvwxyz');
+    initTable('Hello World!');
+
+</script>
+</html>
