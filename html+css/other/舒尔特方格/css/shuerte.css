@@ -206,6 +206,11 @@ a {
     float: left;
     width: 500px;
     margin-top: 20px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .words_true {
@@ -302,13 +307,15 @@ a {
     width: 48px;
     height: 48px;
     background: url(../img/lm_next.png) no-repeat;
-
     float: left;
     margin-left: 100px;
 }
 
-.study_info {
+.button_next:hover {
+    opacity: 0.8;
+}
 
+.study_info {
     overflow: hidden;
 }
 
