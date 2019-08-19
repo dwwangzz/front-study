@@ -144,19 +144,19 @@
             // 3*3=9
             columnsMax = 3;
             maxChar = 9;
-        } else if (len > 9 && len <= 20) {
-            // 5*4=20
+        } else if (len > 9 && len <= 16) {
+            // 4*4=16
+            columnsMax = 4;
+            maxChar = 16;
+        } else if (len > 16 && len <= 25) {
+            // 5*5=30
             columnsMax = 5;
-            maxChar = 20;
-        } else if (len > 20 && len <= 30) {
-            // 6*5=30
-            columnsMax = 6;
-            maxChar = 30;
+            maxChar = 25;
         } else {
-            // 单词超长 默认5行6列
-            columnsMax = 6;
-            maxChar = 30;
-            wordSet = new Set(Array.from(wordSet).slice(0, 30));
+            // 单词超长 默认5行5列
+            columnsMax = 5;
+            maxChar = 25;
+            wordSet = new Set(Array.from(wordSet).slice(0, maxChar));
             len = wordSet.size;
         }
 
