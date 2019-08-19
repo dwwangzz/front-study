@@ -302,6 +302,14 @@ a {
     margin-top: 13px;
 }
 
+.lm_play:hover {
+    opacity: 0.8;
+}
+
+.lm_play:active {
+    opacity: 1;
+}
+
 .button_next {
     display: block;
     width: 48px;
@@ -430,6 +438,14 @@ a {
     float: right;
     background: url(../img/exit.png) no-repeat 0 0;
     margin-right: 20px;
+}
+
+.foot_exit:hover {
+    opacity: 0.8;
+}
+
+.foot_exit:active {
+    opacity: 1;
 }
 
 /*红*/
