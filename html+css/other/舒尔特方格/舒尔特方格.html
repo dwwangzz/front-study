@@ -113,6 +113,7 @@
             },
             // 播放读音
             play: function (letter) {
+                letter = letter.toLowerCase();
                 let div = document.getElementById('dshuerte');
                 let audio = div.getElementsByTagName('audio')[0];
                 audio.src = "http://www.lmhynyy.com/files/voice/" + letter + "/" + letter + ".mp3";
@@ -129,7 +130,7 @@
      */
     function initTable(word) {
         // 1. 单词切割并去重
-        let wordSet = new Set(word.toLowerCase().split(''));
+        let wordSet = new Set(word.split(''));
         console.dir(wordSet);
 
         // 表格最大字符
@@ -206,8 +207,8 @@
         app._data.rows = tableArr;
     }
 
-    initTable('abcdefghijklmnopqrstuvwxyz');
-    // initTable('Hello World!');
+    // initTable('abcdefghijklmnopqrstuvwxyz');
+    initTable('Hello Worldayzj');
 
 </script>
 </html>
