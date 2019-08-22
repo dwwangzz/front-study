@@ -37,7 +37,7 @@
                 <div class="clear"></div>
             </div>
             <div class="lm_info3">
-                <div class="shuerte" id="shuerte">
+                <div class="shuerte" id="shuerte" v-if="isShowFangGe">
                     <table cellpadding="0" cellspacing="0" border="0">
                         <tr v-for="(item, indexTr) in rows">
                             <td v-for="(ch, indexTd) in item" @click="selectCh(ch)" :class="'zm-bg'+(indexTr*6+indexTd)%5">
@@ -45,8 +45,12 @@
                             </td>
                         </tr>
                     </table>
-                    <a class="close">关闭</a>
+                    <a class="close dis-select" @click="toggle">关闭</a>
                 </div>
+                <div class="zhankai" v-if="!isShowFangGe">
+                    <a class="close dis-select" @click="toggle">展开</a>
+                </div>
+
                 <div class="study_info" style="display: block;">
                     <a href="" class="button_next" title="下一个单词" style="display: block;"></a>
                 </div>
@@ -78,6 +82,7 @@
             message: 'H',
             bgColorIndex: 1,
             word: "",
+            isShowFangGe: true,
             rows: [[]]
         },
         methods: {
@@ -93,6 +98,10 @@
                 if ((this.word.split('').pop() + val).trim()) {
                     this.word += val;
                 }
+            },
+            // 打开关闭方格
+            toggle: function () {
+                this.isShowFangGe = !this.isShowFangGe;
             },
             // 删除一个字母
             backspace: function (e) {
@@ -206,8 +215,8 @@
         app._data.rows = tableArr;
     }
 
-    // initTable('abcdefghijklmnopqrstuvwxyz');
-    initTable('Hello World');
+    initTable('abcdefghijklmnopqrstuvwxyz');
+    // initTable('Hello World');
 
 </script>
 </html>
