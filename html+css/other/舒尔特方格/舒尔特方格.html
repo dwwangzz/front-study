@@ -79,7 +79,6 @@
     let app = new Vue({
         el: '#dshuerte',
         data: {
-            message: 'H',
             bgColorIndex: 1,
             word: "",
             isShowFangGe: true,
@@ -90,9 +89,6 @@
             selectCh: function (val) {
                 if (/^[a-zA-Z]+$/.test(val)) {
                     this.play(val);
-                }
-                if (this.word.length >= 30) {
-                    return false;
                 }
                 // 最后一个字符+当前字符 不为空才处理 空格只能连续出现一次
                 if ((this.word.split('').pop() + val).trim()) {
