@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-创建一个vue实例</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--{{ 1+1 }}-->
+    <!--{{ 'a' }}-->
+    <!--{{ 10 }}-->
+    <!--{{ true }}-->
+    <!--{{ [1,2,3,4,5] }}-->
+    <!--{{ {a:1,b:10} }}-->
+    <!--{{ undefined }}-->
+    <!--{{ null }}-->
+    {{ a }}
+
+</div>
+
+<script>
+    // element 元素
+    // 插值表达式
+    // vm自身元素 $ 开头 PS：data中的元素直接挂在vue实例中
+    // vm.$nextTick 视图更新完之后执行
+    // vm.$mount
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            a: 123
+        }
+    });
+    // vm.$mount('#app'); // 和 vue中的 el: '#app'效果一样
+
+    vm.a = 11;
+    vm.a = 12;
+    console.log(vm.a);
+    console.log(vm.$el.innerHTML);
+    // 视图更新完之后执行
+    vm.$nextTick(() => {
+        console.log(vm.$el.innerHTML);
+    });
+
+</script>
+</body>
+</html>

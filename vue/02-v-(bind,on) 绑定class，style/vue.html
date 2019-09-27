@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-v-(bind,on) 绑定class，style</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .red {
+            background-color: red;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .wh100 {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!-- vue指令 -->
+    <!-- 1. v-bind 绑定属性 （ v-bind <==> : ） -->
+    <!-- 2. class [] 或 {'classname': true/false} 或 这个class是否存在 -->
+    <img v-bind:src="imgUrl" v-bind:alt="name" width="100"/>
+    <img :src="imgUrl" :alt="name" width="100"/>
+    <!-- 多个class绑定 -->
+    <h4 :class="h4Class">{{ name }}</h4>
+    <!-- 多个class绑定 -->
+    <h4 :class="[h4Class,h4Width]">{{ name }}</h4>
+    <h4 :class="{red: true}">{{ name }}</h4>
+    <h4 :class="[{red: true},{blue: blueFlag}]">{{ name }}</h4>
+
+    <!-- 3. style [] 或 {width:'50px'} -->
+    <div :style="{width:divWidth,height:'50px',border:'10px solid red'}">
+        style，style，style，style，style，style
+    </div>
+    <br>
+    <div :style="[{width:divWidth,height:'50px',border:'10px solid red'},divStyle]" style="height: 100px;">
+        style2，style2，style2，style2，style2，style2
+    </div>
+    <br>
+
+    <!-- 4. v-on:xxx 监听事件 （v-on:click <==> @click ） -->
+    <div :class="bgColorArr[bgIndex%3]" class="wh100">
+
+    </div>
+    <button v-on:click="changeBGColor">改变颜色</button>
+    <!-- $event,事件对象 -->
+    <button v-on:click="eventTre($event,123)">传递事件对象</button>
+
+</div>
+
+
+<script>
+
+    // v-bind:src 属性绑定
+
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            name: '【Web前端开发之Javascript精英课堂】',
+            imgUrl: 'img/1.png',
+            h4Class: 'red',
+            h4Width: 'width',
+            blueFlag: true,
+            divWidth: '200px',
+            divStyle: {
+                backgroundColor: '#f40',
+                opacity: 0.5
+            },
+            bgColorArr: ['red', 'green', 'yellow'],
+            bgIndex: 0
+        },
+        methods: {
+            changeBGColor: function (e) {
+                // this == vm
+                console.log(e.target);
+                this.bgIndex = this.bgIndex + 1;
+            },
+            eventTre(a, b) {
+                console.log(a.target)
+                console.log(b)
+                console.log($event);
+            }
+        }
+    });
+</script>
+</body>
+</html>
