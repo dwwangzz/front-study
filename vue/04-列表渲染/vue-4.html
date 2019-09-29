@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>model</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>
+        <h4>v-for</h4>
+        <ul>
+            <li>arr: (item, index) in arr</li>
+            <li>obj: (value, key, index) in obj</li>
+            <li>num: num in number</li>
+            <li>str: char in str</li>
+            <li>
+                数组：
+                <ul>
+                    <li>1. 不能通过索引的方式修改数组，这样不会渲染</li>
+                    <li>2. 不能通过修改长度的方式修改数组，这样也不会渲染</li>
+                    <li>3. 数组变异方法：pop、shift、unshift、splice、sort、reverse、push</li>
+                </ul>
+            </li>
+            <li>
+                对象：
+                <ul>
+                    <li>1. 向对象内添加或者删除属性、不会渲染页面</li>
+                    <li>2. 对象添加方法可以使用 vm.$set(obj, name, value); 原理：Object.defineProperty 监听</li>
+                </ul>
+            </li>
+            <li>key(number/string类型 唯一) vue会根据key判断是不是同一个元素，如果key相同，内容不同的话，才会去改，内容一样的话就直接复用这个元素了</li>
+        </ul>
+    </div>
+    <hr>
+    <hr>
+    <ul>
+        <!-- item,index外面括号有没有对可以 -->
+        <li v-for="(item,index) in arr">{{ item }} --- {{ index }}</li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="value in obj">{{ value }}</li>
+    </ul>
+    <ul>
+        <li v-for="(value,key) in obj">{{ value }} --- {{ key }}</li>
+    </ul>
+    <ul>
+        <li v-for="(value,key,index) in obj" :key="value">{{ value }} --- {{ key }} --- {{ index }}</li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="item in 5">{{ item }}</li>
+    </ul>
+    <hr>
+    <div>
+        {{ arr }}
+        <button @click="addArr">addArr</button>
+    </div>
+    <div>
+        {{ obj }}
+        <button @click="updateObj">updateObj</button>
+    </div>
+
+</div>
+<script>
+
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            arr: [
+                'html', 'css', 'js', 'vue'
+            ],
+            obj: {
+                name: 'wangzz',
+                age: 18,
+                sex: 'man'
+            }
+        },
+        methods: {
+            addArr() {
+                // 1. 这样改变数组的值是，页面不会重新渲染
+                // let len = this.arr.length;
+                // this.arr[len] = 'wangzz';
+                // 2. 这样可以重新渲染
+                this.arr.push('wangzz')
+            },
+            updateObj() {
+                this.obj.name = 'dawang';
+                this.obj.status = 'good';
+                this.$set(this.obj, 'status', 'good');
+                delete this.obj.name;
+            }
+        }
+    });
+</script>
+</body>
+</html>

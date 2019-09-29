@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>model</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+
+        .red {
+            background-color: #f40;
+        }
+
+        .blue {
+            background-color: #1d477c;
+        }
+    </style>
+</head>
+<body>
+
+<!-- v-if 能够控制元素的显示与隐藏 -->
+<!-- v-else-if -->
+<!-- v-else -->
+<!-- v-if 和 v-else中间不能放别的元素，不然会导致后面的指令不生效，并代码报错 -->
+<!-- template 标签是vue的自带的标签，没有实际的意义，在页面上不进行渲染，可以使用F12查看效果 -->
+
+<!-- v-show 也可以控制元素的显示隐藏 -->
+v-show 与 v-if 区别，
+1. v-if是remove dom节点，而v-show是通过控制display:none;来控制元素显示隐藏的
+2. template 无法使用v-show，即使使用了也没有效果，因为在页面上不进行渲染template节点，如果使用template标签，只能使用v-if
+<div id="app">
+    <button @click="handleClick">{{ text }}</button>
+    <template v-if="show">
+        <div class="box red"></div>
+    </template>
+    <div class="box blue" v-else></div>
+</div>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            show: true,
+            text: '隐藏'
+        },
+        methods: {
+            handleClick() {
+                this.show = !this.show;
+                if (this.text == '隐藏') {
+                    this.text = '显示'
+                } else {
+                    this.text = '隐藏'
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
