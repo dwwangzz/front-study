@@ -52,6 +52,8 @@
 
     </div>
     <button v-on:click="changeBGColor">改变颜色</button>
+    <button v-on:click="changeBGColor2">changeBGColor2</button>
+    <button v-on:click="changeBGColor2('hello')">changeBGColor2-2</button>
     <!-- $event,事件对象 -->
     <button v-on:click="eventTre($event,123)">传递事件对象</button>
 
@@ -76,7 +78,12 @@
                 opacity: 0.5
             },
             bgColorArr: ['red', 'green', 'yellow'],
-            bgIndex: 0
+            bgIndex: 0,
+            // 不能这样用函数
+            changeBGColor2:function(param){
+                console.log(this); // 这里this 是windows，而不是vue对象
+                console.log(param);
+            }
         },
         methods: {
             changeBGColor: function (e) {
