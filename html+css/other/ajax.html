@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../static/js/jquery-1.11.2.min.js"></script>
+    <title>ajax测试</title>
+</head>
+<body>
+<form id="form" action="http://localhost:8080/success" method="get">
+    <ul>
+        <li>姓名：<input name="name" type="text"></li>
+        <li>年龄：<input name="age" type="number"></li>
+        <li>
+            <button type="submit">提交</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="reset">重置</button>
+        </li>
+    </ul>
+</form>
+<input type="button" onclick="test()" value="Ajax访问">
+<input type="button" onclick="test2()" value="Gateway Ajax访问">
+<br>
+<input type="button" onclick="test3()" value="Ajax3访问">
+</body>
+
+<script>
+    function test() {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/success",
+            // contentType: "application/json;utf-8",
+            data: $("#form").serialize(),
+            async: false,
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+            }
+            //失败后执行的代码
+            // error: function (error, status, xhr) {
+            //     alert("异步请求出错");
+            // }
+        });
+    }
+
+    function test2() {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:9000/model/success",
+            // contentType: "application/json;utf-8",
+            data: $("#form").serialize(),
+            async: false,
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+            }
+            //失败后执行的代码
+            // error: function (error, status, xhr) {
+            //     alert("异步请求出错");
+            // }
+        });
+    }
+
+    function test3() {
+        $.ajax({
+            type: "GET",
+            url: "http://192.169.31.41:18011/iep/uaa/app/check/code/img?hash=55aa608a2c38dc42302b0288a3e7fd85f869&t=" + (new Date()).getTime(),
+            // url: "http://10.20.153.240/iep/uaa/app/check/code/img?hash=55aa608a2c38dc42302b0288a3e7fd85f869&t=" + (new Date()).getTime(),
+            headers: {
+                "X-IEP-Source": "MINIPROGRAM",
+                "Authorization": "",
+            },
+            // data: {
+            //
+            // },
+            async: false,
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+            }
+            //失败后执行的代码
+            // error: function (error, status, xhr) {
+            //     alert("异步请求出错");
+            // }
+        });
+    }
+</script>
+
+</html>
