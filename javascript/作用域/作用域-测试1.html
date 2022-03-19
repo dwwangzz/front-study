@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域</title>
+</head>
+<body>
+<script>
+    /*
+    理解：
+    1. 创建AO对象
+    2. 把形参和变量作为AO属性名，值为undefined
+    3. 函数调用实际参数赋值给AO属性
+    4. 在函数体中找函数声明
+    5. 依次执行语句
+    AO{
+     a: 123
+     b: function(){}
+    }
+     */
+
+    //1: function a(){}
+    //2: undefined
+    //3: 234
+    //4: 123
+    //5: 123
+    //6: function(){}
+function test(a,b){
+    console.log(a)
+    console.log(b)
+    var b = 234
+    console.log(b)
+    a = 123
+    console.log(a)
+    function a(){}
+    var a
+    b = 234
+    var b = function(){}
+    console.log(a)
+    console.log(b)
+}
+test(1)
+
+
+
+    function a(){
+        function b(){
+            function c(){}
+            c();
+        }
+        b();
+    }
+    a();
+
+
+</script>
+</body>
+</html>

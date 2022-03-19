@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>局部作用域</title>
+</head>
+<body>
+<script>
+
+    /*
+    预编译 - 四部曲
+    1. 创建AO对象(Activation Object 执行期上下文)
+    2. 找形参和变量声明，将变量和形参作为AO属性名，值为undefined
+    3.将实参值和形参统一
+    4. 在函数体里面找函数声明，值赋予函数体
+
+    AO {
+        a : function() a(){}
+        b : undefined
+        d : function d(){}
+    }
+
+    理解：
+    1. 创建AO对象
+    2. 把形参和变量作为AO属性名，值为undefined
+    3. 函数调用实际参数赋值给AO属性
+    4. 在函数体中找函数声明
+    5. 依次执行语句
+     */
+
+    function fn(a) {
+
+        console.log(a);
+
+        var a = 123;
+
+        console.log(a);
+
+        function a(){}
+
+        console.log(a);
+
+        var b = function(){}
+
+        console.log(b);
+
+        function d(){}
+
+    }
+    fn(1);
+</script>
+</body>
+</html>

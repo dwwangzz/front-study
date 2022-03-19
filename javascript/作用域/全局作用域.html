@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局作用域</title>
+</head>
+<body>
+<script>
+
+    /*
+    全局作用域也适用四部曲
+    1. 生成了一个GO对象
+    GO {
+     a: 123
+    } GO === window
+     */
+    // var a =123;
+    // function a(){}
+    // console.log(a); // 123
+
+
+    /*
+    全局和局部作用域都存在，则先处理全局作用域，再处理局部作用域 ！！！！！！！
+    理解：
+    1. 创建GO对象
+    2. 把形参和变量作为GO属性名，值为undefined
+    3. 函数调用实际参数赋值给GO属性
+    4. 在函数体中找函数声明
+    5. 依次执行语句
+
+    1. 创建AO对象
+    2. 把形参和变量作为AO属性名，值为undefined
+    3. 函数调用实际参数赋值给AO属性
+    4. 在函数体中找函数声明
+    5. 依次执行语句
+
+    GO{
+        test : 123
+    }
+    AO{
+        test : function test(){}
+    }
+
+     */
+    function test(test) {
+        console.log(test) // function test(){}
+        var test = 234;
+        console.log(test) // 234
+        function test(){}
+    }
+    test(1)
+    console.log(test) // function test(){......}
+    var test = 123;
+    console.log(test) // 123
+
+    function bar(){
+        return foo;
+        foo = 10;
+        function foo(){}
+        var foo = 11;
+    }
+
+    console.log(bar())
+</script>
+</body>
+</html>
