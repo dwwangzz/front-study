@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .study_info_dc {
+        display: table;
+        width: 554px;
+        color: #666;
+        height: 170px;
+        font-weight: bold;
+        font-size: 20px;
+        overflow: hidden;
+        border-radius: 5px;
+        line-height: 170px;
+        text-align: center;
+        margin: 55px auto 40px;
+    }
+
+    .words_dc {
+        display: block;
+        width: 554px;
+        height: 170px;
+        background-color: #ff7800;
+        text-align: center;
+        border-radius: 5px;
+        color: #0066CC;
+        text-decoration: none;
+        float: left;
+        font-size: 20px;
+        position: relative;
+        z-index: 10;
+        cursor: pointer;
+        border: solid 1px #D5D5D5;
+    }
+
+    .words_dc_1 {
+        margin: 0 auto auto;
+        height: 80px;
+        line-height: 80px;
+        font-size: 30px;
+        border: 0 solid red;
+    }
+
+    .words_dc_1 span {
+        display: block;
+        color: #0066CC;
+    }
+
+
+    /* ----------- 单词本 ------------*/
+    .words_book_3 {
+        display: block;
+        width: 217px;
+        height: 100px;
+        background-color: #e72715;
+        text-align: center;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px;
+        font-size: 20px;
+        position: relative;
+        z-index: 10;
+        cursor: pointer;
+    }
+
+    .words_book_3_1 {
+        margin: auto;
+        margin-top: 20px;
+        height: 50px;
+        line-height: 20px;
+    }
+
+    .jizhule {
+        position: absolute;
+        left: 10px;
+        font-size: 13px;
+        margin-top: 8px;
+        display: none;
+    }
+
+</style>
+
+<div class="study_info_dc">
+    <a class="words_dc" id="dc" flag="0">
+        <div class="words_dc_1" onclick="showDanci('hello', '你好', '[həˈləʊ]');">
+            they're
+            <span class="dc_sound">[ðeə(r)] [ðeɪ] [ɑː] </span>
+        </div>
+    </a>
+</div>
+<div style="display: none;">
+    <audio id="word_audio" src="http://www.lmhynyy.com/files/mp3/hello.mp3" />
+</div>
+<hr>
+<a class="words_book_3" style="background-color: #d02090" title="星期五" id="ct_192827" en="Friday" cn="星期五" so="[ˈfraɪdeɪ] " flag="0"
+   onmouseover="showSo(192827);" onmouseout="hideSo(192827);">
+    <div class="words_book_3_1" onclick="showWord(192827);">
+        Friday                                <!-- <span>[ˈfraɪdeɪ] </span> -->
+    </div>
+    <div onclick="onJizhule(192827)" id="jizhule_192827" class="jizhule" style="display: none;">[记住了]</div>
+    <img src="/Public/images/home/volume-small1.png" id="so_192827" onclick="onPlayWord(192827);" style="display: none;">
+</a>
+
+<script src="jquery.1.8.0.min.js"></script>
+<script src="jquery.flippy.min.js"></script>
+<script src="jquery.simplemodal.js"></script>
+<script>
+
+    //单词翻转
+    function showDanci(wordEnglish, wordChinese, wordSymbol) {
+        var flag = $("#dc").attr("flag");
+        if (flag == "0") {
+            $("#dc").attr("flag", "1");
+            $("#dc").flippy({
+                color_target: "2c84ee",
+                direction: "top",
+                duration: "750",
+                verso: '<div class="words_dc_2" onclick="showDanci(\'' + wordEnglish + '\', \'' + wordChinese + '\', \'' + wordSymbol + '\');">' + wordChinese + '</div>',
+            });
+            // 播放mp3
+            onBofang();
+        } else {
+            $("#dc").attr("flag", "0");
+            $("#dc").flippy({
+                color_target: "2c84ee",
+                direction: "top",
+                duration: "750",
+                verso: '<div class="words_dc_1" onclick="showDanci(\'' + wordEnglish + '\', \'' + wordChinese + '\', \'' + wordSymbol + '\');">' + wordEnglish + '<div class="dc_sound">' + wordSymbol + '</div></div>',
+            });
+        }
+    }
+
+    //播放声音
+    function onBofang() {
+        $("#word_audio")[0].play();
+    }
+
+    function showWord(id) {
+        var cn = $("#ct_" + id).attr("cn");
+        var en = $("#ct_" + id).attr("en");
+        var so = $("#ct_" + id).attr("so");
+        var flag = $("#ct_" + id).attr("flag");
+        if (flag == "0") {
+            $("#ct_" + id).attr("flag", "1");
+            $("#ct_" + id).flippy({
+                color_target: "d02090",
+                direction: "left",
+                duration: "750",
+                verso: '<div class="words_book_3_2" onclick="showWord(' + id + ');">' + cn + '<span>' + so + '</span></div><div onclick="onJizhule(' + id + ')" id="jizhule_' + id + '" class="jizhule">[记住了]</div><img src="/Public/images/home/volume-small1.png" id="so_' + id + '" onclick="onPlayWord(' + id + ');"/>',
+            });
+
+        } else {
+            $("#ct_" + id).attr("flag", "0");
+            $("#ct_" + id).flippy({
+                color_target: "d02090",
+                direction: "left",
+                duration: "750",
+                verso: '<div class="words_book_3_1" onclick="showWord(' + id + ');">' + en + '</div><div onclick="onJizhule(' + id + ')" id="jizhule_' + id + '" class="jizhule">[记住了]</div><img src="/Public/images/home/volume-small1.png" id="so_' + id + '" onclick="onPlayWord(' + id + ');"/>',
+            });
+        }
+        e.preventDefault();
+    }
+</script>
+</body>
+</html>

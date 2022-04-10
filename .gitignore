@@ -3,6 +3,7 @@
 *.jar
 *.war
 *.iml
+node_modules
 target
 !.gitignore
 !pom.xml

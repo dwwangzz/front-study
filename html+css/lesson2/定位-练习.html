@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    /*********** 1. absolute 绝对定位 ***********/
+    .demo {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        opacity: 0.5;
+    }
+
+    .box {
+        width: 150px;
+        height: 150px;
+        background-color: green;
+    }
+
+    /*********** 2. relative 相对定位 ***********/
+    .demo2 {
+        position: relative;
+        left: 10px;
+        top: 10px;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        opacity: 0.5;
+    }
+
+    .box2 {
+        width: 150px;
+        height: 150px;
+        background-color: green;
+    }
+
+    /*********** 复杂定位 ***********/
+    .warpper {
+        position: relative;
+        margin-left: 100px;
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+    }
+
+    .content {
+        position: relative;
+        margin-left: 100px;
+        width: 100px;
+        height: 100px;
+        background-color: #70bfde;
+    }
+
+    .box3 {
+        position: absolute;
+        left: 50px;
+        width: 50px;
+        height: 50px;
+        background-color: yellow;
+    }
+</style>
+<body>
+<!-- 定位 position
+定律：用relative当做参照物，不用relative定位，使用absolute来进行定位
+优点：
+a. 不设置left/top的时候，relative对元素没有任何影响
+b. 对后面元素影响小
+-->
+<!--
+1. absolute 绝对定位
+    a. 脱离原来位置，进行定位。原来位置空出来了，当前元素就在上一层了
+    b. 相对于最近的有定位的父级定位，如果没有，那么相对于文档进行定位
+-->
+<div>
+    <div class="demo"></div>
+    <div class="box2"></div>
+    <div class="box"></div>
+</div>
+
+<!--
+2. relative 相对定位
+    a. 保留原来位置，进行定位
+    b. 相对于自己原来的位置进行定位
+-->
+<!--<div class="demo2"></div>
+<div class="box2"></div>-->
+
+<!-- 复杂 -->
+<!--<div class="warpper">
+    <div class="content">
+        <div class="box3"></div>
+    </div>
+</div>-->
+
+<!--
+3. fixed 固定定位
+-->
+<!--<style>
+    .fix-center {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        width: 100px;
+        height: 100px;
+        /*差半个身位*/
+        margin-left: -50px;
+        margin-top: -50px;
+        background-color: #70bfde;
+    }
+</style>
+<div class="fix-center"></div>-->
+
+
+</body>
+</html>
