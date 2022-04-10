@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../static/js/jquery-1.11.2.min.js"></script>
+    <title>IEP测试</title>
+</head>
+<body>
+<div id="text"></div>
+<input type="button" onclick="test()" value="Ajax访问">
+<input type="button" onclick="test2()" value="清空">
+
+<br />
+<hr />
+<form id="form" enctype="multipart/form-data">
+    id:<input type="text" id="id" name="ids" value="857213010115035136" /><br>
+    文件:<input type="file" id="imgFile" name="imgFile" /><br>
+    <input type="button" id="btn" value="上传" onclick="test3()" /><br>
+</form>
+
+</body>
+
+
+<script>
+    function test() {
+        $.ajax({
+            type: "GET",
+            // url: "http://10.20.154.200:18011/iep-dev/admin/role/menu/803050074195099648?clientCode=ADMIN",
+            url: "http://10.20.154.200:18011/iep-dev/admin/role/menu/803050074195099648?clientCode=ADMIN",
+            // url: "http://localhost:18011/iep-dev/main/schedule/change/leave/apply",
+            // url: "http://localhost:18011/iep-dev/main/schedule?empName=%E5%AD%99%E6%85%A7",
+            // url: "http://localhost:18011/iep-dev/main/schedule/attachment/bigimg?newName=leave/202105/ae44bdf84a2943d9b6cc879dc5778f86.jpg",
+            // url: "http://localhost:18031/schedule/check/abcde",
+            contentType: "application/json;utf-8",
+            dataType: "json",
+            async: false,
+            headers: {
+                "X-IEP-Source": "ADMIN",
+                "Authorization": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTRDA3ODkyIiwiYXVkIjpudWxsLCJleHAiOjE2MjYzMjgyMTYsImp0aSI6IjIiLCJjcmVhdGVkIjoiMjAyMS0wNy0xNCAxMzo1MDoxNiJ9.bfOnqyHstumS6eTKmS6Thsiiv6br0omOjpCP2rNVI9U",
+            },
+            success: function (data) {
+                console.log(data);
+                var jsonStr = JSON.stringify(data);
+                $("#text").text(jsonStr)
+            }
+        });
+    }
+
+    function test4() {
+        $.ajax({
+
+            type: "POST",
+            url: "http://192.168.32.57/iep-test/main/schedule/change/leave/apply",
+            // url: "http://localhost:18011/iep-dev/main/schedule/change/leave/apply",
+            // url: "http://localhost:18011/iep-dev/main/schedule?empName=%E5%AD%99%E6%85%A7",
+            // url: "http://localhost:18011/iep-dev/main/schedule/attachment/bigimg?newName=leave/202105/ae44bdf84a2943d9b6cc879dc5778f86.jpg",
+            // url: "http://localhost:18031/schedule/check/abcde",
+            contentType: "application/json;utf-8",
+            dataType: "json",
+            // data: $("#form").serialize(),
+            data: JSON.stringify({
+                // "addAttachmentList": ["",""],
+                "applEdate": "2021-06-04",
+                "applEtime": "17:30:00",
+                "applSdate": "2021-06-04",
+                "applStime": "08:30:00",
+                "applUserCode": "OP808249",
+                "leaveType": 1,
+                "leaveWay": 0,
+                "remark": ""
+            }),
+            async: false,
+            headers: {
+                "X-IEP-Source": "MINIPROGRAM",
+                "Authorization": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTRDAwMjI2IiwiZXhwIjoxNjIyODc2NzgwLCJqdGkiOiI4MDMwNDg1NDA0NzIzNDQ1NzYifQ.Aqxgqx-vCj2eBB7MCPdb5ChxAKNlrNk-d-__JEVD9cc",
+            },
+
+            success: function (data) {
+                console.log(data);
+                var jsonStr = JSON.stringify(data);
+                $("#text").text(jsonStr)
+
+            }
+        });
+    }
+
+    function test2() {
+        $("#text").text('');
+    }
+
+    function test3() {
+        var formData = new FormData();
+        var id = $("#id").val();
+        var imgFile = $('#imgFile')[0];
+        // var imgFile = $('#imgFile')[0].files[0];
+        formData.append('ids', id);
+        formData.append('imgFile', imgFile);
+        $.ajax(
+            {
+                // url: 'http://192.168.32.57/iep-test/main/schedule/change/leave/upload/image',
+                url: 'http://localhost:18031/schedule/change/leave/upload/image',
+                type: 'POST',
+                // data: formData,
+                data: new FormData($('#form')[0]),
+                // contentType: "multipart/form-data",
+                headers: {
+                    "X-IEP-Source": "MINIPROGRAM",
+                    "Authorization": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTRDAwMjI2IiwiYXVkIjoiY2UxZGI0YWU2ZGU1NDhiZTg3MWJlYzc4ZDQ3NDUzZDcxNjI4NzM0NDY3NzU5IiwiZXhwIjoxNjI4ODIwODY3LCJqdGkiOiIxOCIsImNyZWF0ZWQiOiIyMDIxLTA4LTEyIDEwOjE0OjI3In0.w-LkSvXAH_tkdQiBqp-07LLlPWWJ1TXizCAL2mtGT2Y",
+                },
+                // contentType: false, //禁止设置请求类型
+                // processData: false, //禁止jquery对data数据的处理,默认会处理，禁止的原因是,FormData已经帮我们做了处理
+                dataType: "json",
+                success: function (result) {
+                    console.log(result)
+                }
+            }
+        );
+    }
+</script>
+
+</html>

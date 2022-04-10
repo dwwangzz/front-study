@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>预编译、闭包练习题</title>
+</head>
+<body>
+<script>
+    /**
+     * 练习题
+     */
+    a = 100
+
+    function demo(e) {
+
+        console.log(e);
+        function e() {}
+        arguments[0] = 2;
+        console.log(e);
+
+        if (a) {
+            var b = 123
+            function c() {}
+        }
+        var c;
+        a = 10;
+        var a;
+        console.log(b);
+        f = 123;
+        console.log(c);
+        console.log(a);
+
+    }
+
+    var a;
+    demo(1);
+    console.log(a);
+    console.log(f);
+
+</script>
+</body>
+</html>

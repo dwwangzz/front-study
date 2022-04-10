@@ -26,10 +26,15 @@
     function test() {
         $.ajax({
             type: "GET",
-            url: "http://localhost:8080/success",
-            // contentType: "application/json;utf-8",
-            data: $("#form").serialize(),
+            url: "http://localhost:18011/iep-dev/main/schedule/attachment/bigimg?newName=leave/202105/ae44bdf84a2943d9b6cc879dc5778f86.jpg",
+            // url: "http://localhost:18011/iep-dev/uaa/wx/message/template",
+            // url: "http://localhost:18031/schedule/check/abcde",
+            contentType: "application/json;utf-8",
+            // data: $("#form").serialize(),
             async: false,
+            headers: {
+                "X-IEP-Source": "ADMIN"
+            },
             dataType: "json",
             success: function (data) {
                 console.log(data);
@@ -62,7 +67,7 @@
     function test3() {
         $.ajax({
             type: "GET",
-            url: "http://192.169.31.41:18011/iep/uaa/app/check/code/img?hash=55aa608a2c38dc42302b0288a3e7fd85f869&t=" + (new Date()).getTime(),
+            url: "http://localhost:18011/iep/uaa/app/check/code/img?hash=55aa608a2c38dc42302b0288a3e7fd85f869&t=" + (new Date()).getTime(),
             // url: "http://10.20.153.240/iep/uaa/app/check/code/img?hash=55aa608a2c38dc42302b0288a3e7fd85f869&t=" + (new Date()).getTime(),
             headers: {
                 "X-IEP-Source": "MINIPROGRAM",
