@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    .sticky-table {
+      overflow: auto;
+      height: 400px; /* 设置固定高度 */
+      width: 1000px;
+      position: absolute
+    }
+
+    .sticky-table td, .sticky-table th {
+      /* 设置td,th宽度高度 */
+      border: 1px solid #c7d8ee;
+      width: 150px;
+      min-width: 150px;
+      height: 30px;
+      padding: 5px;
+    }
+
+    .sticky-table th {
+      position: sticky;
+      top: 0; /* 首行永远固定在头部  */
+      background-color: #eaf4ff; /*设置表头背景色*/
+    }
+
+    .sticky-table td:first-child, .sticky-table th:first-child {
+      position: sticky;
+      left: 0; /* 首列永远固定在左侧 */
+      z-index: 1;
+      background-color: #eaf4ff;
+    }
+
+    .sticky-table th:first-child {
+      z-index: 2; /*表头的首列要在上面*/
+    }
+
+    .sticky-table th > div {
+      width: 100%;
+      white-space: normal;   /*允许在单元格内正常换行。*/
+      word-wrap: break-word; /*当单元格内的单词太长时，允许将单词拆分成多个行。*/
+      word-break: break-all; /*允许在单元格内的单词内进行换行，而不仅限于字母间的换行。*/
+    }
+
+    /*.sticky-table table {
+        table-layout: fixed;  布局为固定布局。这意味着表格的列宽和行高将保持不变
+    }*/
+
+  </style>
+</head>
+<body style="padding: 0px;margin: 0px;">
+<div class="sticky-table">
+  <table>
+    <thead>
+    <tr>
+      <th></th>
+      <th colspan="8">个人素养</th>
+      <th colspan="4">社群素养</th>
+      <th colspan="8">职业素养</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th colspan="2">身体素质</th>
+      <th colspan="2">艺术修养</th>
+      <th colspan="2">心理素质</th>
+      <th colspan="2">道德修为</th>
+      <th colspan="2">爱国与责任意识</th>
+      <th colspan="2">法律与环保意识</th>
+      <th colspan="6">基本职业素质</th>
+      <th colspan="2">企业文化与创新精神</th>
+    </tr>
+    <tr>
+      <th>姓名</th>
+      <th><div>基本身体情况</div></th><th><div>体育特长能力</div></th>
+      <th><div>艺术审美</div></th><th><div>爱好特长</div></th>
+      <th><div>心理健康</div></th><th><div>自我调节</div></th>
+      <th><div>自信自强、诚实守信</div></th><th><div>文明素养、个人行为规范</div></th>
+      <th><div>爱国意识</div></th><th><div>责任心及服务意识</div></th>
+      <th><div>法律意识</div></th><th><div>环保意识</div></th>
+      <th><div>语言表达能力及口语特长</div></th><th><div>自我管理，自我激励</div></th>
+      <th><div>发展规划能力</div></th><th><div>信息技术能力</div></th>
+      <th><div>沟通能力</div></th><th><div>团队合作能力</div></th>
+      <th><div>企业文化学习</div></th><th><div>创新能力、解决问题能力</div></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    <tr>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td><td>优秀</td>
+      <td>优秀</td><td>优秀</td><td>优秀</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
